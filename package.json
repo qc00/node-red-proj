@@ -1,0 +1,22 @@
+{
+    "name": "node-red-project",
+    "description": "Venus",
+    "version": "0.2.0",
+    "private": true,
+    "dependencies": {
+        "@shaoranlaos/node-red-contrib-ecoflow-http-api": "~1.0.1",
+        "moment": "^2.29.4",
+        "node-red-contrib-alexa-smart-home": "~0.4.68",
+        "node-red-contrib-credentials": "~0.2.3",
+        "node-red-contrib-influxdb": "~0.7.0",
+        "node-red-contrib-os": "~0.2.1",
+        "node-red-dashboard": "~3.6.1",
+        "victron-vrm-api": "^0.2.15"
+    },
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

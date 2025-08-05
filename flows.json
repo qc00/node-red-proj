@@ -1,0 +1,3076 @@
+[
+    {
+        "id": "26d9df42cb8dafc6",
+        "type": "tab",
+        "label": "MultiPlus",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f4e68de234cff620",
+        "type": "tab",
+        "label": "InfluxDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8c4da3b4870d50a4",
+        "type": "tab",
+        "label": "Control UI",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bc5b0103b541a64e",
+        "type": "tab",
+        "label": "Ecoflow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "772e6979.67cd08",
+        "type": "tab",
+        "label": "System",
+        "disabled": false
+    },
+    {
+        "id": "accc5caec111ad4f",
+        "type": "junction",
+        "z": "772e6979.67cd08",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "7cf01d46.a3cad4",
+                "7780c9ca.7581b8"
+            ]
+        ]
+    },
+    {
+        "id": "42ac2fc291cc64cb",
+        "type": "junction",
+        "z": "26d9df42cb8dafc6",
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "0c87b17726237c91",
+                "14941b58fef1f2a4"
+            ]
+        ]
+    },
+    {
+        "id": "f38d7ea6c6aba445",
+        "type": "junction",
+        "z": "bc5b0103b541a64e",
+        "x": 80,
+        "y": 360,
+        "wires": [
+            [
+                "575b987579d3c1ff"
+            ]
+        ]
+    },
+    {
+        "id": "victron-client-id",
+        "type": "victron-client"
+    },
+    {
+        "id": "8fde2b2df4b484df",
+        "type": "alexa-smart-home-v3-conf",
+        "username": "bh7dstpshwt4",
+        "mqttserver": "mq-red.cb-net.co.uk",
+        "webapiurl": "red.cb-net.co.uk",
+        "contextName": "memory"
+    },
+    {
+        "id": "95f3e819c1921476",
+        "type": "tls-config",
+        "name": "Amazon",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "octopus-energy.pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "d6268db62aea9f2b",
+        "type": "ui_tab",
+        "name": "MultiPlus",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6124ba1ba093e86e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "0b20d68dae0538d4",
+        "type": "ui_group",
+        "name": "Market",
+        "tab": "d6268db62aea9f2b",
+        "order": 2,
+        "disp": true,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7853403.230cdc",
+        "type": "ui_group",
+        "name": "CPU Load",
+        "tab": "e6013c6f.69328",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "1d1da0fc.6ab84f",
+        "type": "ui_group",
+        "name": "Memory",
+        "tab": "e6013c6f.69328",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "e6013c6f.69328",
+        "type": "ui_tab",
+        "name": "System",
+        "icon": "computer",
+        "order": 2
+    },
+    {
+        "id": "a0c09cbc32a93f22",
+        "type": "ui_group",
+        "name": "Users",
+        "tab": "e6013c6f.69328",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9c6ed5a3141fbc56",
+        "type": "ui_group",
+        "name": "Usage Control",
+        "tab": "d6268db62aea9f2b",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "17268573dfac859a",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "d6268db62aea9f2b",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "11cf884897231ecb",
+        "type": "config-vrm-api",
+        "name": "API Caller"
+    },
+    {
+        "id": "a6f0cf597c0bc9a7",
+        "type": "ui_group",
+        "name": "Stats",
+        "tab": "d6268db62aea9f2b",
+        "order": 4,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "441f38fbab1f4c02",
+        "type": "tls-config",
+        "name": "Any CA",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "964300ff89738424",
+        "type": "ecoflow-api-server",
+        "name": "Ecoflow",
+        "server": "https://api-e.ecoflow.com"
+    },
+    {
+        "id": "57f4e1d6e78375c3",
+        "type": "mqtt-broker",
+        "name": "Dynamic",
+        "broker": "0.0.0.0",
+        "port": "1883",
+        "tls": "441f38fbab1f4c02",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d927688bd5ff7ee5",
+        "type": "ui_group",
+        "name": "Ecoflow",
+        "tab": "e6013c6f.69328",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "df2cf7e32ff3c4b5",
+        "type": "influxdb",
+        "hostname": "192.168.1.3",
+        "port": "8181",
+        "protocol": "http",
+        "database": "homelab",
+        "name": "1.3",
+        "usetls": false,
+        "tls": "95f3e819c1921476",
+        "influxdbVersion": "2.0",
+        "url": "http://192.168.1.3:8181",
+        "timeout": "10",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "a25d96493d3b1337",
+        "type": "victron-output-generator",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.generator/0",
+        "path": "/ManualStart",
+        "serviceObj": {
+            "service": "com.victronenergy.generator/0",
+            "name": "Generator start/stop"
+        },
+        "pathObj": {
+            "path": "/ManualStart",
+            "type": "enum",
+            "name": "Manual Start",
+            "enum": {
+                "0": "Stop generator",
+                "1": "Start generator"
+            },
+            "writable": true
+        },
+        "initial": "",
+        "name": "Generator | Manual Start",
+        "onlyChanges": false,
+        "x": 850,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "77d8947e23c939dc",
+        "type": "debug",
+        "z": "26d9df42cb8dafc6",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "abb2dcd790b183c5",
+        "type": "victron-output-vebus",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Mode",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Mode",
+            "type": "enum",
+            "name": "Switch Position",
+            "remarks": "<p>Note that <tt>/ModeIsAdjustable</tt> needs to be set to 1.</p> ",
+            "enum": {
+                "1": "Charger Only",
+                "2": "Inverter Only",
+                "3": "On",
+                "4": "Off"
+            },
+            "writable": true
+        },
+        "initial": "",
+        "name": "Multi Compact | Mode",
+        "onlyChanges": false,
+        "x": 840,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7adc5df9ef1b7ab3",
+        "type": "victron-input-vebus",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Dc/0/Voltage",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Voltage",
+            "type": "float",
+            "name": "Battery voltage (V)"
+        },
+        "name": "Multi Compact | Batt Volt",
+        "onlyChanges": true,
+        "roundValues": "2",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "23d1edc193f3e9f8",
+                "aebaf2bb57f317f4"
+            ]
+        ]
+    },
+    {
+        "id": "9e5ac39e711022f0",
+        "type": "alexa-smart-home-v3-state",
+        "z": "26d9df42cb8dafc6",
+        "conf": "8fde2b2df4b484df",
+        "device": "56832",
+        "name": "Battery Voltage",
+        "x": 820,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "14941b58fef1f2a4",
+        "type": "change",
+        "z": "26d9df42cb8dafc6",
+        "name": "Set temp",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.state.temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 380,
+        "wires": [
+            [
+                "9e5ac39e711022f0"
+            ]
+        ]
+    },
+    {
+        "id": "06ff8ffa92515b94",
+        "type": "victron-input-vebus",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Alarms/LowBattery",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Alarms/LowBattery",
+            "type": "enum",
+            "name": "Low battery",
+            "enum": {
+                "0": "Ok",
+                "1": "Warning",
+                "2": "Alarm"
+            }
+        },
+        "initial": "",
+        "name": "Multi Compact | Low Batt",
+        "onlyChanges": true,
+        "x": 210,
+        "y": 480,
+        "wires": [
+            [
+                "0c87b17726237c91"
+            ]
+        ]
+    },
+    {
+        "id": "6608896aa567eac0",
+        "type": "comment",
+        "z": "26d9df42cb8dafc6",
+        "name": "Links",
+        "info": "[Alexa devices](https://red.cb-net.co.uk/devices)",
+        "x": 1090,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "23d1edc193f3e9f8",
+        "type": "delay",
+        "z": "26d9df42cb8dafc6",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "42ac2fc291cc64cb"
+            ]
+        ]
+    },
+    {
+        "id": "0c87b17726237c91",
+        "type": "function",
+        "z": "26d9df42cb8dafc6",
+        "name": "MCP",
+        "func": "const val = msg.payload;\n\nswitch(msg.topic) {\ncase \"Multi Compact | Batt Volt\":\n    context.set('volt', val);\n    if (val < 24) {\n        context.set('lowBatt', 2);\n    }\n    break;\n\ncase \"Multi Compact | Low Batt\":\n    context.set('lowBatt', val);\n    break;\n\ncase \"multiMode Save\":\ncase \"ticker\":\n    break;\ndefault:\n    node.error(\"Unexpected msg: \" + JSON.stringify(msg));\n    return;\n}\n\nconst [lowBatt, volt] = context.get([\"lowBatt\", \"volt\"]);\nconst time = global.get(\"roundNow\")();\nconst saved = global.get(\"multiMode\")[time];\nconst curr = global.get(\"currMultiMode\");\n\n\nconst mode = (lowBatt === 2 && (saved || curr) === 2) ? 3 : saved;\nconst genMode = +(mode === 1);\n\nnode.log(`time=${time}, topic=${msg.topic}, lowBatt=${lowBatt}, mode=${mode}, gen=${genMode}`);\nnode.status({\n    fill: [\"green\", \"yellow\", \"red\"][lowBatt],\n    shape: [\"ring\", \"dot\"][genMode],\n    text:  `${volt}V | ${[`(${curr})`, \"Charge\", \"Invert\", \"Bypass\", \"Off\"][mode || 0]}`\n});\n\nlet alexaMsg;\nif (mode !== 1) {\n    alexaMsg = {\n        \"acknowledge\":true,\n        \"payload\" : {\n            \"state\" : {\n                \"motion\": lowBatt ? \"DETECTED\" : \"NOT_DETECTED\"\n            }\n        }\n    };\n}\n\nreturn [alexaMsg, mode && {payload: mode === 1? 3 : mode}, mode && {payload: genMode}];",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "function roundNow() {\n    let time = new Date();\n    time.setMinutes(time.getMinutes() < 30? 0 : 30);\n    return time.toISOString().substring(0, 16) + \"Z\";\n}\n\nglobal.set('roundNow', roundNow);",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "c614bf0ceeadedfd"
+            ],
+            [
+                "abb2dcd790b183c5"
+            ],
+            [
+                "a25d96493d3b1337"
+            ]
+        ]
+    },
+    {
+        "id": "c614bf0ceeadedfd",
+        "type": "alexa-smart-home-v3-state",
+        "z": "26d9df42cb8dafc6",
+        "conf": "8fde2b2df4b484df",
+        "device": "56971",
+        "name": "Battery Low",
+        "x": 810,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9d9ce450a2df9620",
+        "type": "victron-output-custom",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.settings",
+        "path": "/Settings/Alarm/System/GridLost",
+        "serviceObj": {
+            "service": "com.victronenergy.settings",
+            "name": "com.victronenergy.settings"
+        },
+        "pathObj": {
+            "path": "/Settings/Alarm/System/GridLost",
+            "name": "/Settings/Alarm/System/GridLost",
+            "type": "number"
+        },
+        "name": "Multi Compact | Grid Lost",
+        "onlyChanges": false,
+        "x": 1350,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a9315f97739fb8c8",
+        "type": "inject",
+        "z": "26d9df42cb8dafc6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 1110,
+        "y": 660,
+        "wires": [
+            [
+                "9d9ce450a2df9620"
+            ]
+        ]
+    },
+    {
+        "id": "3d46533cb912f3fc",
+        "type": "inject",
+        "z": "26d9df42cb8dafc6",
+        "name": "30min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "*/30 0-23 * * *",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ticker",
+        "payload": "",
+        "payloadType": "date",
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "0c87b17726237c91"
+            ]
+        ]
+    },
+    {
+        "id": "aebaf2bb57f317f4",
+        "type": "rbe",
+        "z": "26d9df42cb8dafc6",
+        "name": "> 3% change",
+        "func": "deadband",
+        "gap": "3%",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "topic",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "42ac2fc291cc64cb"
+            ]
+        ]
+    },
+    {
+        "id": "0b136901ad8b8bd3",
+        "type": "link in",
+        "z": "26d9df42cb8dafc6",
+        "name": "MultiPlus",
+        "links": [
+            "13e86263024cc5c5"
+        ],
+        "x": 525,
+        "y": 460,
+        "wires": [
+            [
+                "0c87b17726237c91"
+            ]
+        ]
+    },
+    {
+        "id": "3d72852a0bf4fb9b",
+        "type": "ui_text",
+        "z": "26d9df42cb8dafc6",
+        "group": "17268573dfac859a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Switch Mode",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9f3d3a60aa43c69f",
+        "type": "function",
+        "z": "26d9df42cb8dafc6",
+        "name": "Save mode",
+        "func": "const {Mode, Bms: {AllowToCharge} = {}} = global.get('victronenergy')?.vebus?._261;\nconst mode = Mode === 3 && AllowToCharge? 1 : Mode;\nglobal.set(\"currMultiMode\", mode);\n\nconst name = [\"\", \"Charge\", \"Invert\", \"Bypass\", \"Off\"][mode];\nconst desc = `${Mode}${AllowToCharge}=${name}`;\nnode.status({text: desc});\nreturn {payload: desc};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "3d72852a0bf4fb9b"
+            ]
+        ]
+    },
+    {
+        "id": "41c12b7498f7d0bf",
+        "type": "victron-input-vebus",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Bms/AllowToCharge",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Bms/AllowToCharge",
+            "type": "enum",
+            "name": "BMS allows battery to be charged",
+            "enum": {
+                "0": "No",
+                "1": "Yes"
+            }
+        },
+        "initial": "",
+        "name": "Multi Compact | Charge",
+        "onlyChanges": true,
+        "roundValues": "1",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "9f3d3a60aa43c69f"
+            ]
+        ]
+    },
+    {
+        "id": "419cfc2ed027603b",
+        "type": "victron-input-vebus",
+        "z": "26d9df42cb8dafc6",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Mode",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Mode",
+            "type": "enum",
+            "name": "Switch Position",
+            "enum": {
+                "1": "Charger Only",
+                "2": "Inverter Only",
+                "3": "On",
+                "4": "Off"
+            },
+            "mode": "both"
+        },
+        "initial": "",
+        "name": "Multi Compact | Mode",
+        "onlyChanges": false,
+        "roundValues": "1",
+        "x": 200,
+        "y": 40,
+        "wires": [
+            [
+                "9f3d3a60aa43c69f"
+            ]
+        ]
+    },
+    {
+        "id": "a73efc356634eec3",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/ActiveIn/L1/F",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/ActiveIn/L1/F",
+            "type": "float",
+            "name": "Input frequency phase 1 (Hz)"
+        },
+        "initial": "",
+        "name": "vebus/_261/Ac<ActiveIn>L1/F",
+        "onlyChanges": false,
+        "roundValues": "no",
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "509479fdcb3add03",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/ActiveIn/L1/P",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/ActiveIn/L1/P",
+            "type": "float",
+            "name": "Input power phase 1 (W)"
+        },
+        "initial": "",
+        "name": "vebus/_261/Ac<ActiveIn>L1/P",
+        "onlyChanges": false,
+        "roundValues": "no",
+        "x": 840,
+        "y": 100,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "58aee1b2040252ba",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/ActiveIn/L1/I",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/ActiveIn/L1/I",
+            "type": "float",
+            "name": "Input current phase 1 (A)"
+        },
+        "initial": "",
+        "name": "vebus/_261/Ac<ActiveIn>L1/I",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 840,
+        "y": 60,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "7ed89de6f42f5b90",
+        "type": "function",
+        "z": "f4e68de234cff620",
+        "name": "Deferred",
+        "func": "flow.get('deferred')(msg);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "class ObjPool extends Array {\n    queueEnd = 0; // When negative, points to the last message sent\n\n    constructor(proto) {\n        super();\n        this.proto = Object.freeze(proto);\n    }\n\n    last() {\n        return this[Math.abs(this.queueEnd) - 1];\n    }\n\n    next() {\n        const qe = Math.max(0, this.queueEnd);\n        if (qe === this.length) {\n            // Make bunch of new ones\n            let i = this.length;\n            this.length+=10;\n            for (; i < this.length; ++i) {\n                this[i] = Object.create(this.proto);\n            }\n        }\n        this.queueEnd = qe + 1;\n        return this[qe];\n    }\n    \n    exportUntil(cutoff, now) {\n        const qe = this.queueEnd;\n        if (qe <= 0) return [];\n\n        const last = this[qe - 1];\n        if (last.timestamp <= cutoff) {\n            last.fields.duration = now - last.timestamp;\n            this.queueEnd = -qe;\n            return this.slice(0, qe);\n        } else {\n            const out = this.slice(0, qe - 1);\n            if (qe > 2) {\n                const tmp = this[qe - 1];\n                this[qe - 1] = this[0];\n                this[0] = tmp;\n            }\n            this.queueEnd = 1;\n            return out;\n        }\n    }\n}\n\nconst byPath = {};\nconst PATTERN = /(\\w+)\\/_?(\\d+)[^<]*<([^>]+).*/;\nconst EMPTY_MSG = Object.freeze({fields: Object.freeze({}), timestamp: 0});\nconst MIN_GAP = 50;\nconst MAX_GAP = 3000; // Should capture 90% of normal readings\nconst _VI = [\"I\", \"V\"];\nconst RETAINED = {ActiveIn: _VI, Out: _VI, Dc: _VI};\n\nfunction deferred({topic, payload}) {\n    const date = new Date();\n    const sepIdx = Math.max(topic.lastIndexOf('>'), topic.lastIndexOf('/'));\n    const path = topic.slice(0, sepIdx);\n    const col = topic.slice(sepIdx + 1);\n\n    // Make/get pool\n    let pool = byPath[path];\n    if (!pool) {\n        const [, devType, devId, measurement] = PATTERN.exec(topic);\n        pool = byPath[path] = new ObjPool({measurement, tags: {[devType]: +devId}});\n        pool.retain = RETAINED[measurement] || [];\n    }\n\n    const last = pool.last() || EMPTY_MSG;\n    const gap = date - last.timestamp;\n    if (gap >= MIN_GAP) { // New message\n        const next = pool.next();\n        const nf = next.fields = {};\n        const lf = last.fields;\n        nf[col] = payload;\n\n        for (const retain of pool.retain) {\n            if (retain !== col) {\n                const retainTs = `last_${retain}_ts`;\n                nf[retain] = lf[retain];\n                nf[retainTs] = lf[retainTs] ?? last.timestamp-0;\n            }\n        }\n\n        lf.duration = gap;\n        next.timestamp = date;\n    } else { // Existing message\n        const f = last.fields;\n        f[col] = f[col] ? f[col] * 0.4 + payload * 0.6 : payload;\n        delete f[`last_${col}_ts`];\n    }\n}\n\nsetInterval(function interval() {\n    const date = new Date();\n    const cutoff = date - MAX_GAP;\n    const outArrs = Object.values(byPath).map(p => p.exportUntil(cutoff, date));\n    node.send({payload: outArrs.flat()});\n}, 10000);\n\nflow.set('byPath', byPath);\nflow.set('deferred', deferred);",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 180,
+        "wires": [
+            [
+                "dd6b862095bd1f52",
+                "a892ef4543af39f6"
+            ]
+        ]
+    },
+    {
+        "id": "dd6b862095bd1f52",
+        "type": "debug",
+        "z": "f4e68de234cff620",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5b675c0ed20a5ff7",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/ActiveIn/L1/V",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/ActiveIn/L1/V",
+            "type": "float",
+            "name": "Input voltage phase 1 (VAC)"
+        },
+        "initial": "",
+        "name": "vebus/_261/Ac<ActiveIn>L1/V",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 840,
+        "y": 20,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "a892ef4543af39f6",
+        "type": "influxdb batch",
+        "z": "f4e68de234cff620",
+        "influxdb": "df2cf7e32ff3c4b5",
+        "precision": "",
+        "retentionPolicy": "",
+        "name": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "x",
+        "bucket": "homelab",
+        "x": 1140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "67cfbc1e7af55581",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/Out/L1/P",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/Out/L1/P",
+            "type": "float",
+            "name": "Output power phase 1 (W)"
+        },
+        "initial": "",
+        "name": "vebus/261/Ac<Out>L1/P",
+        "onlyChanges": false,
+        "roundValues": "no",
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "309022585fb99438",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/Out/L1/I",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/Out/L1/I",
+            "type": "float",
+            "name": "Output current phase 1 (A)"
+        },
+        "initial": "",
+        "name": "vebus/261/Ac<Out>L1/I",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 820,
+        "y": 240,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "2068db448b726a2b",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/Out/L1/V",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/Out/L1/V",
+            "type": "float",
+            "name": "Output voltage phase 1 (VAC)"
+        },
+        "initial": "",
+        "name": "vebus/261/Ac<Out>L1/V",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 830,
+        "y": 200,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "cc15ceafb35de09b",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Dc/0/Current",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Current",
+            "type": "float",
+            "name": "Battery current (A)"
+        },
+        "initial": "",
+        "name": "vebus/261<Dc>/0/I",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "0628da14f086c80b",
+        "type": "victron-input-vebus",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Dc/0/Voltage",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Voltage",
+            "type": "float",
+            "name": "Battery voltage (V)"
+        },
+        "initial": "",
+        "name": "vebus/261<Dc>/0/V",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 810,
+        "y": 340,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "108a3c89af68efe5",
+        "type": "victron-input-solarcharger",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.solarcharger/288",
+        "path": "/Dc/0/Current",
+        "serviceObj": {
+            "service": "com.victronenergy.solarcharger/288",
+            "name": "SmartSolar Charger MPPT 75/15"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Current",
+            "type": "float",
+            "name": "Battery current (A)"
+        },
+        "name": "solarcharger/288<Dc>I",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "3837da26efb6a1af",
+        "type": "victron-input-solarcharger",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.solarcharger/288",
+        "path": "/Dc/0/Voltage",
+        "serviceObj": {
+            "service": "com.victronenergy.solarcharger/288",
+            "name": "SmartSolar Charger MPPT 75/15"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Voltage",
+            "type": "float",
+            "name": "Battery voltage (V)"
+        },
+        "name": "solarcharger/288<Dc>V",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 820,
+        "y": 440,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "ab747c564d0a159c",
+        "type": "victron-input-solarcharger",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.solarcharger/288",
+        "path": "/Yield/Power",
+        "serviceObj": {
+            "service": "com.victronenergy.solarcharger/288",
+            "name": "SmartSolar Charger MPPT 75/15"
+        },
+        "pathObj": {
+            "path": "/Yield/Power",
+            "type": "float",
+            "name": "PV Power (W)"
+        },
+        "name": "solarcharger/288<Pv>P",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 820,
+        "y": 580,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "3766751065cd2f0b",
+        "type": "victron-input-solarcharger",
+        "z": "f4e68de234cff620",
+        "service": "com.victronenergy.solarcharger/288",
+        "path": "/Pv/V",
+        "serviceObj": {
+            "service": "com.victronenergy.solarcharger/288",
+            "name": "SmartSolar Charger MPPT 75/15"
+        },
+        "pathObj": {
+            "path": "/Pv/V",
+            "type": "float",
+            "name": "PV voltage"
+        },
+        "name": "solarcharger/288<Pv>V",
+        "onlyChanges": false,
+        "roundValues": "2",
+        "x": 820,
+        "y": 540,
+        "wires": [
+            [
+                "7ed89de6f42f5b90"
+            ]
+        ]
+    },
+    {
+        "id": "3a19f5955684dc54",
+        "type": "credentials",
+        "z": "f4e68de234cff620",
+        "name": "",
+        "props": [
+            {
+                "value": "payload",
+                "type": "msg"
+            }
+        ],
+        "x": 1110,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9159b5d7c0a1168d",
+        "type": "http request",
+        "z": "8c4da3b4870d50a4",
+        "name": "Agile $$$",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.octopus.energy/v1/products/AGILE-24-10-01/electricity-tariffs/E-1R-AGILE-24-10-01-A/standard-unit-rates/",
+        "tls": "95f3e819c1921476",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "faa5f979163eba9f"
+            ]
+        ],
+        "info": "https://developer.octopus.energy/rest/reference\n\nTo get product:\n1. call `https://api.octopus.energy/v1/accounts/A-...`\n2. remove the \"E-1R\" and \"-A\" for the first placeholder and use the full tariff for the second"
+    },
+    {
+        "id": "faa5f979163eba9f",
+        "type": "function",
+        "z": "8c4da3b4870d50a4",
+        "name": "Parse Agile $$$",
+        "func": "// msg, data_key, extract_date, extract_data, saving, node\nreturn flow.get('handleResponse')(msg, node,\n    (p) => p.results,\n    (o) => o.valid_from,\n    (o) => o.value_inc_vat,\n    (d) => global.set(\"agile\", d));\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "function handleFail(msg, node) {\n    switch (msg.statusCode) {\n    case 'OK':\n    case 200:\n        context.set(\"handleFailWait\", null);\n        return false;\n    default:\n        const wait = context.get(\"handleFailWait\") * 2 || 5000;\n        context.set(\"handleFailWait\", wait);\n\n        setTimeout(() => {\n            const arr = Array(node.outputCount);\n            arr[node.outputCount-1] = {\n                payload: Date.now(),\n                _handleFail: wait\n            };\n            node.send(arr);\n            node.done();\n        }, wait);\n        // fall-through:\n    case 400:\n        node.warn(`Request fail: ${JSON.stringify(msg.payload)}`);\n        return true;\n    }\n}\n\nconst dateFormat = Intl.DateTimeFormat('en-GB', {\n    timeZoneName: 'short', hour: '2-digit', minute:'2-digit'\n});\n\nfunction handleResponse(msg, node, extract_payload, extract_date, extract_data, saving) {\n    if (handleFail(msg, node)) return;\n\n    const out = {};\n    let min=\"9\", max=\"0\", count=0;\n    for (const o of extract_payload(msg.payload)) {\n        const d = extract_date(o);\n    \tout[d.substring(0, 16) + \"Z\"] = extract_data(o);\n    \tif (d < min) min = d;\n    \tif (d > max) max = d;\n    \tcount++;\n    }\n    saving(out);\n    node.status({text: `${min.substring(8, 16)}-${max.substring(8, 16)}|${count}`});\n    return [{payload: 1, updated: dateFormat.format(Date.now())}]\n}\n\nflow.set('handleResponse', handleResponse);",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "d69e663412bccb48",
+                "448dcdf819b603de"
+            ],
+            [
+                "9159b5d7c0a1168d"
+            ]
+        ],
+        "outputLabels": [
+            "Success",
+            "Fail"
+        ]
+    },
+    {
+        "id": "30b7e3ef5a0cf43d",
+        "type": "debug",
+        "z": "8c4da3b4870d50a4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "af97f7c7394df402",
+        "type": "inject",
+        "z": "8c4da3b4870d50a4",
+        "name": "Daily",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "02 16 * * *",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "9159b5d7c0a1168d"
+            ]
+        ]
+    },
+    {
+        "id": "417e7d09598a12f8",
+        "type": "http in",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "url": "/agile",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 900,
+        "wires": [
+            [
+                "4f6d4fd70ff22cdf"
+            ]
+        ]
+    },
+    {
+        "id": "c1c2d539b51f830f",
+        "type": "http response",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 480,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "4f6d4fd70ff22cdf",
+        "type": "change",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "agile",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 900,
+        "wires": [
+            [
+                "c1c2d539b51f830f"
+            ]
+        ]
+    },
+    {
+        "id": "2c7512fef1cf6fd9",
+        "type": "ui_chart",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "group": "0b20d68dae0538d4",
+        "order": 1,
+        "width": "9",
+        "height": "6",
+        "label": "Before",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HHmm",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#00ff40",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "info": "https://github.com/node-red/node-red-dashboard/blob/master/Charts.md"
+    },
+    {
+        "id": "d69e663412bccb48",
+        "type": "function",
+        "z": "8c4da3b4870d50a4",
+        "name": "Serve",
+        "func": "const [currMultiMode, {wattMs, durations}, agile, carbon] = global.get(['currMultiMode', 'consumption', 'agile', 'carbon']);\nconst saved = global.get('multiMode') || {};\nconst cutoff = global.get('roundNow')();\nconst keys = new Set(Object.keys(agile).concat(Object.keys(carbon)));\n\nconst graphss = [[[], [], []], [[], [], []]], table = [];\nfor (const dt of Array.from(keys).sort()) {\n    const d = new Date(dt);\n    const p = agile[dt];\n    const c = carbon[dt] || [NaN, NaN];\n    const future = dt >= cutoff;\n\n    const graphs = graphss[+future];\n    graphs[0].push({x: d, y: Math.floor(p * 10)});\n    if (c) {\n        graphs[1].push({x: d, y: c[0]});\n        graphs[2].push({x: d, y: c[1]});\n    }\n\n    if (future && p !== undefined) {\n        table.push({dt, p: p.toFixed(0), c: c[0]});\n    }\n}\n\nconst consumption = Array(24);\nfor (const h in wattMs) {\n    consumption[h] = wattMs[h] / durations[h];\n}\n\nreturn [\n    {payload: [{\"series\": [\"Agile\", \"CO2\", \"CO2 Actual\"], \"data\": graphss[0]}]},\n    {payload: [{\"series\": [\"Agile\", \"CO2\", \"CO2 Actual\"], \"data\": graphss[1]}]},\n    {payload: table, saved, consumption, currMultiMode, topic: 'decisions_table_v2'}\n];",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "if (!global.get('multiMode')) {\n    global.set('multiMode', {});\n}\n",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 870,
+        "y": 220,
+        "wires": [
+            [
+                "2c7512fef1cf6fd9"
+            ],
+            [
+                "5e9f9b012e770f91"
+            ],
+            [
+                "2f598774fb083edd"
+            ]
+        ],
+        "info": "1 - Charger Only\n2 - Inverter Only\n3 - On"
+    },
+    {
+        "id": "1b607e7b6379618d",
+        "type": "inject",
+        "z": "8c4da3b4870d50a4",
+        "name": "manual",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "d69e663412bccb48"
+            ]
+        ]
+    },
+    {
+        "id": "2f598774fb083edd",
+        "type": "ui_template",
+        "z": "8c4da3b4870d50a4",
+        "group": "9c6ed5a3141fbc56",
+        "name": "",
+        "order": 3,
+        "width": "8",
+        "height": "13",
+        "format": "<style>\n#decisions th {\n    padding: 0;\n}\n#decisions .slot {\n    width: 5ex;\n}\n#decisions .slot.local {\n    color: grey;\n}\n#decisions .price {\n    font-family: monospace;\n    width: 5ex;\n}\n#decisions .adj, #decisions .hint {\n    font-family: monospace;\n    font-size: 70%;\n    width: 1px;\n    color: grey;\n    text-align: right;\n}\n#decisions .hint {\n    display: inline-block;\n    width: 0;\n    text-shadow: 0.5px 0.5px white;\n}\n#decisions .co2 {\n    font-family: monospace;\n    width: 3ex;\n    text-align: right;\n    padding-right: 1ex;\n}\n#decisions .rb {\n    text-align: center;\n}\n</style>\n<script>\n(function() {\n    //debugger;\n\n    // Time zone helpers\n    const ukFmt = Intl.DateTimeFormat(\"en-GB\", {hour: \"2-digit\", minute: \"2-digit\", timeZone: \"Europe/London\"});\n    const localNow = new Date();\n    const notUk = scope.notUk = localNow.getHours() !== +ukFmt.format(localNow).substr(0, 2);\n\n    // Helper for getting the chart model\n    function huntChart(o) {\n        if (o?.type === \"chart\" && o?.label === \"After\") {\n            return o;\n        } else {\n            for (const i of (o?.items || [])) {\n                let ret = huntChart(i);\n                if (ret) return ret;\n            }\n        }\n    }\n\n    function update_cumu(msg) {\n        let cumuChargeHrs = 0, cumuDischargeHrs = 0;\n        let cumuWh = 0;\n        for (const i of msg.payload) {\n            switch(i.s) {\n                case 1:\n                    i.cumuHrs = cumuChargeHrs += 0.5;\n                    break;\n                case 2:\n                    i.cumuWh = cumuWh += i.wh;\n                    i.cumuHrs = cumuDischargeHrs += 0.5;\n                    break\n                default:\n                    i.cumuHrs = undefined;\n            }\n        }\n    }\n    scope.$watchCollection(\"msg.saved\", (newVal, o, scope) => {\n        console.log(\"cumu\", scope.msg, !!newVal);\n        if (newVal) update_cumu(scope.msg);\n    });\n\n    // Decision inheritance\n    const base = {\n        /** Charging mode decision */\n        get resolved() {\n            return this.s;\n        },\n        set resolved(mode) {\n            console.log(`Set ${this.dt}=${mode}`);\n            if (mode) {\n                this.s = mode;\n                this.saved[this.dt] = mode;\n            } else {\n                delete this.s;\n                delete this.saved[this.dt];\n            }\n        }\n    };\n\n    scope.$watch(\"msg\", (msg) => {\n        // This function will receive all messages sent to the dashboard & any saved ones.\n        if (msg?.topic === 'decisions_table_v2' && !msg.decisionTableProcessed) {\n            console.log(\"$Watch\", msg);\n            base.s = msg.currMultiMode;\n            base.saved = msg.saved;\n            let chartMin = 0;\n            const con = msg.consumption || {};\n\n            msg.payload.reduce((prev, curr, idx) => {\n                Object.setPrototypeOf(curr, prev);\n\n                s = msg.saved[curr.dt];\n                if (s !== undefined) {\n                    curr.s = s;\n                }\n\n                const d = new Date(curr.dt);\n                if (notUk) curr.d = d;\n                const uk = curr.ukFmt = ukFmt.format(d);\n                const hour = +uk.substring(0, 2);\n                curr.wh = con[hour];\n                const p = curr.p;\n                if (p < 0) {\n                    curr.hint = 1;\n                } else if (p > 20 || curr.c > 180 || (hour >= 16 && hour < 20)) {\n                    curr.hint = 2;\n                } else {\n                    curr.hint = null;\n                }\n                if (p < chartMin) chartMin = p;\n                return curr;\n            }, base);\n\n            msg.decisionTableProcessed = true;\n            update_cumu(msg);\n\n            let chart = huntChart(angular.element(document.body).data()[\"$ngControllerController\"].selectedTab);\n            if (chart) {\n                chart.ymin = String(Math.floor(chartMin / 50) * 50);\n            }\n        }\n    });\n\n    scope.factor=0.8;\n})();\n</script>\n\n<div style=\"display:flex; flex-direction: row;\">\n    <label for=\"Cycle-factor\">Cycle factor:</label>\n    <input id=\"Cycle-factor\" type=\"range\" ng-model=\"factor\" min=\"0.01\" max=\"1\" step=\"0.01\" style=\"flex-grow: 1\">\n    <span>{{factor | number: 2}}</span>\n</div>\n\n<table id=\"decisions\" ng-form=\"decisions\">\n<thead><tr>\n    <th>UK</th><th ng-if=\"::notUk\">Local</th>\n    <th>Pence</th><th colspan=\"2\">CO<sub>2</sub></th>\n    <th title=\"1- Charge\">C</th><th title=\"2- Invert\">I</th><th title=\"3 - Bypass\">B</th>\n</tr></thead>\n<tbody>\n    <tr ng-repeat=\"i in msg.payload track by i.dt\">\n        <th class=\"slot\" title=\"{{::i.dt}}\">{{::i.ukFmt}}</th>\n        <th class=\"slot local\" ng-if=\"::notUk\">{{::i.localDate | date: 'HH:mm'}}</th>\n\n        <td class=\"price\" style=\"padding-left: {{i.p/5 | number: 0}}ex\">\n            {{i.p}}<span class=\"adj\" ng-show=\"factor<1 && i.p>1 && i.p<=25\"> {{i.p / factor | number: 0}}</span>\n        </td>\n        <td class=\"co2\">{{i.c}}</td>\n        <td class=\"adj\">{{i.c / factor | number: 0}}</td>\n        <td class=\"rb\" ng-repeat=\"v in ::[1,2,3]\" style=\"{{i.hint === v ? 'background-color: green;' : ''}}\">\n            <input type=\"radio\" ng-model=\"i.resolved\" ng-value=\"::v\" ng-dblclick=\"i.resolved=undefined\"\n                   style=\"{{i.resolved === v && !i.hasOwnProperty('s') ? 'opacity: 0.5;' : ''}}\"><!--\n            --><span class=\"hint\" ng-show=\"i.s === v && i.cumuHrs>0 && i.cumuHrs %2 === 0\">{{i.cumuHrs}}h<!--\n                --><span ng-if=\"::v===2\"> {{i.cumuWh | number: 0}}Wh</span></span>\n        </td>\n    </tr>\n</tbody>\n</table>\n<button ng-disabled=\"!msg.saved\" style=\"{{decisions.$pristine ? 'opacity: 0.5;' : ''}}\"\n    ng-click=\"send({payload: msg.saved}); decisions.$setPristine()\">Save</button>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1040,
+        "y": 260,
+        "wires": [
+            [
+                "fd97e01e4c7f13eb"
+            ]
+        ]
+    },
+    {
+        "id": "8cc78ba0083ddb11",
+        "type": "http request",
+        "z": "8c4da3b4870d50a4",
+        "name": "Carbon",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://api.carbonintensity.org.uk/intensity/{{{from}}}/{{{to}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "ee83eb8ac5ffa993"
+            ]
+        ],
+        "info": "Regional:\nhttp://api.carbonintensity.org.uk/regional/intensity/{{{from}}}/{{{to}}}/regionid/10"
+    },
+    {
+        "id": "cc293dbc3062b7c0",
+        "type": "inject",
+        "z": "8c4da3b4870d50a4",
+        "name": "/2h",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "7200",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "db510346c9d86582"
+            ]
+        ]
+    },
+    {
+        "id": "ee83eb8ac5ffa993",
+        "type": "function",
+        "z": "8c4da3b4870d50a4",
+        "name": "Parse Carbon",
+        "func": "// msg, data_key, extract_date, extract_data, saving, node\nreturn flow.get('handleResponse')(msg, node, \n    (p) => p.data,\n    (o) => o.from,\n    (o) => [o.intensity.forecast, o.intensity.actual],\n    (d) => global.set(\"carbon\", d));",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "d69e663412bccb48",
+                "c68868c56ff9b274"
+            ],
+            [
+                "61438a1601db65ed"
+            ]
+        ]
+    },
+    {
+        "id": "5e9f9b012e770f91",
+        "type": "ui_chart",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "group": "0b20d68dae0538d4",
+        "order": 3,
+        "width": "9",
+        "height": "7",
+        "label": "After",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D dd HHmm",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#00ff40",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "info": "https://github.com/node-red/node-red-dashboard/blob/master/Charts.md"
+    },
+    {
+        "id": "fd97e01e4c7f13eb",
+        "type": "change",
+        "z": "8c4da3b4870d50a4",
+        "name": "Save",
+        "rules": [
+            {
+                "t": "set",
+                "p": "multiMode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "multiMode Save",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 260,
+        "wires": [
+            [
+                "13e86263024cc5c5"
+            ]
+        ]
+    },
+    {
+        "id": "13e86263024cc5c5",
+        "type": "link out",
+        "z": "8c4da3b4870d50a4",
+        "name": "multiMode Saved",
+        "mode": "link",
+        "links": [
+            "0b136901ad8b8bd3"
+        ],
+        "x": 1285,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "919042522772b0aa",
+        "type": "link in",
+        "z": "8c4da3b4870d50a4",
+        "name": "API in",
+        "links": [
+            "060128dfb896100c"
+        ],
+        "x": 555,
+        "y": 40,
+        "wires": [
+            [
+                "b4d5784d5685ecf8"
+            ]
+        ]
+    },
+    {
+        "id": "b4d5784d5685ecf8",
+        "type": "switch",
+        "z": "8c4da3b4870d50a4",
+        "name": "This tab",
+        "property": "tab",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "MultiPlus",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 40,
+        "wires": [
+            [
+                "d69e663412bccb48"
+            ]
+        ]
+    },
+    {
+        "id": "c68868c56ff9b274",
+        "type": "ui_button",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "group": "17268573dfac859a",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "CO2: {{updated}}",
+        "tooltip": "Reload carbon data",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "61438a1601db65ed"
+            ]
+        ]
+    },
+    {
+        "id": "448dcdf819b603de",
+        "type": "ui_button",
+        "z": "8c4da3b4870d50a4",
+        "name": "",
+        "group": "17268573dfac859a",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Agile: {{updated}}",
+        "tooltip": "Reload carbon data",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "9159b5d7c0a1168d"
+            ]
+        ]
+    },
+    {
+        "id": "db510346c9d86582",
+        "type": "switch",
+        "z": "8c4da3b4870d50a4",
+        "name": ">7am",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "jsonata_exp",
+                "v": "payload % 86400000 >= 7*3600000",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "61438a1601db65ed"
+            ]
+        ]
+    },
+    {
+        "id": "9ab654ae39ebe672",
+        "type": "vrm-api",
+        "z": "8c4da3b4870d50a4",
+        "vrm": "11cf884897231ecb",
+        "name": "Consumption API",
+        "api_type": "installations",
+        "idUser": "",
+        "users": "",
+        "idSite": "45531",
+        "installations": "stats",
+        "attribute": "consumption",
+        "stats_interval": "hours",
+        "show_instance": false,
+        "stats_start": "-2419200",
+        "stats_end": "0",
+        "use_utc": false,
+        "gps_start": "",
+        "gps_end": "",
+        "widgets": "",
+        "instance": "",
+        "vrm_id": "",
+        "country": "",
+        "b_max": "",
+        "tb_max": "",
+        "fb_max": "",
+        "tg_max": "",
+        "fg_max": "",
+        "b_cycle_cost": "",
+        "buy_price_formula": "",
+        "sell_price_formula": "",
+        "green_mode_on": "",
+        "feed_in_possible": "",
+        "feed_in_control_on": "",
+        "b_goal_hour": "",
+        "b_goal_SOC": "",
+        "store_in_global_context": false,
+        "verbose": true,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "41297551b9749a4d"
+            ]
+        ]
+    },
+    {
+        "id": "41297551b9749a4d",
+        "type": "function",
+        "z": "8c4da3b4870d50a4",
+        "name": "Cumu consumption",
+        "func": "const {lastDate, wattMs, durations} = c = global.get(\"consumption\");\n\nconst localHour = global.get(\"toLocalHour\");\nfunction decay(msFromNow) { return Math.pow(0.999999, msFromNow / 1000); }\n\nif (msg.topic.endsWith(\"| Watts\")) {\n    const now = new Date();\n    if (lastDate) { // Can calculate delta watt\n        const hour = localHour(lastDate);\n        const diff = now - lastDate;\n        const factor = decay(diff);\n        const w = wattMs[hour] = wattMs[hour] * factor + c.lastWatts * diff;\n        const d = durations[hour] = durations[hour] * factor + diff;\n        c.samples += 1;\n        node.status({fill:\"green\", shape:\"dot\", text: `${c.samples} samples. Avg: ${w/d} @ ${hour}h`});\n    }\n    c.lastDate = now;\n    c.lastWatts = msg.payload;\n} else if (msg.topic.startsWith(\"installations stats\") && msg.payload?.success){\n    wattMs.fill(0);\n    durations.fill(0);\n    const p = msg.payload.records.consumption;\n    let cumu = 0;\n    for (const i of p) {\n        const hour = localHour(new Date(i[0]));\n        const weight = 3600000 * decay(Date.now() - i[0]);\n        wattMs[hour] += i[1] * weight;\n        durations[hour] += weight;\n        cumu += i[1];\n    }\n    c.samples = p.length;\n    node.status({fill:\"green\", shape:\"ring\", text: `${c.samples} samples. Avg: ${cumu / samples}W`});\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "const localHourFmt = new Intl.DateTimeFormat(\"en-GB\", {hour: \"numeric\", timeZone: \"Europe/London\"});\n\nglobal.set(\"toLocalHour\", (date) => +localHourFmt.format(date));\n\n// =======\nfunction arr24() { let a = Array(24); a.fill(0); return a; }\n\nconst consumption = {\n    samples: 0,\n    wattMs: arr24(),\n    durations: arr24()\n};\n\nglobal.set(\"consumption\", consumption);",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d61f12e705bdf8a6",
+        "type": "victron-input-vebus",
+        "z": "8c4da3b4870d50a4",
+        "service": "com.victronenergy.vebus/261",
+        "path": "/Ac/Out/L1/P",
+        "serviceObj": {
+            "service": "com.victronenergy.vebus/261",
+            "name": "MultiPlus Compact 24/1600/40-16"
+        },
+        "pathObj": {
+            "path": "/Ac/Out/L1/P",
+            "type": "float",
+            "name": "Output power phase 1 (W)"
+        },
+        "initial": "",
+        "name": "Multi Compact | Watts",
+        "onlyChanges": false,
+        "roundValues": "no",
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "41297551b9749a4d"
+            ]
+        ]
+    },
+    {
+        "id": "c7698c221db04b07",
+        "type": "inject",
+        "z": "8c4da3b4870d50a4",
+        "name": "Init",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 265,
+        "y": 440,
+        "wires": [
+            [
+                "9ab654ae39ebe672"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "61438a1601db65ed",
+        "type": "change",
+        "z": "8c4da3b4870d50a4",
+        "name": "param",
+        "rules": [
+            {
+                "t": "set",
+                "p": "from",
+                "pt": "msg",
+                "to": "$fromMillis(payload - 3600000*12)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "to",
+                "pt": "msg",
+                "to": "$fromMillis(payload + 86400000*4)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "8cc78ba0083ddb11"
+            ]
+        ]
+    },
+    {
+        "id": "c869e61c13e08a4a",
+        "type": "victron-output-battery",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.battery/100",
+        "path": "/Soc",
+        "serviceObj": {
+            "service": "com.victronenergy.battery/100",
+            "name": "EcoFlow Batt"
+        },
+        "pathObj": {
+            "path": "/Soc",
+            "type": "float",
+            "name": "State of charge (%)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 520,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "8bd94aa9570e2831",
+        "type": "debug",
+        "z": "bc5b0103b541a64e",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "575b987579d3c1ff",
+        "type": "function",
+        "z": "bc5b0103b541a64e",
+        "name": "Parse",
+        "func": "const config = context.get('_config');\n\nconst p = msg.payload.param || msg.payload;\nconst date = new Date();\nif (msg.topic) { // MQTT\n    switch (msg.payload.cmdId * 100 + msg.payload.cmdFunc) {\n    case 120:\n        break;\n    case 13420: // Scheduled task\n        return;\n    default:\n        node.warn(\"Unexpected message from Ecoflow: \" + JSON.stringify(msg));\n        return;\n    }\n\n    for (let key in p) {\n        let existing = context.get(key);\n        if (!existing) {\n            context.set(key, existing = new config.Metric());\n        }\n        existing.push(p[key], date);\n    }\n    \n    node.status({text: date.toLocaleString()});\n} else {\n    const {ALWAYS_AVAILABLE} = config;\n    const alwaysAvailable = context.get(ALWAYS_AVAILABLE);\n    for (let i in ALWAYS_AVAILABLE) {\n        alwaysAvailable[i].push(p[ALWAYS_AVAILABLE[i]], date);\n    }\n}\n\nconst pv2 = context.get('pv2InputWatts')?.latestSince(date-60000) || 0;\nconst invStatue = context.get('invStatue').val;\nconst batInputVolt = context.get('batInputVolt').val;\n\nfunction pl(val, factor) {\n    return val || val === 0 ? {payload: factor ? val / factor : val} : null;\n}\n\nconst output = [\n    null,\n    pl(config.INV_MAPPING[invStatue]), // #2\n    pl(invStatue === 6 ? p.invOpVolt: 0, 10),\n    pl(invStatue === 6 ? p.invOutputCur: 0, 1000), // 4\n    pl(invStatue === 6 ? p.invOutputWatts - pv2: 0, 10),\n    pl(p.invOutputLoadLimit, 10), // 6\n    pl(p.batInputVolt, 10),\n    pl(-p.batInputWatts / batInputVolt), // 8\n    pl(-p.batInputWatts, 10),\n    pl(p.batSoc), // 10\n    {payload: p}\n    ];\n\n// Exclude keys for InfluxDB _after_ the output might has used them\nfor (const key of config.exclude) {\n    delete p[key];\n}\n\nreturn output;",
+        "outputs": 11,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "const defaultSize = 6;\n\n/* Manual round-robin */\nclass Metric {\n    static maxCount = 0;\n\n    constructor() {\n        this.count = -1;\n        this.dv = Array(defaultSize);\n    }\n\n    push(val, date) {\n        const c = this.count += 1;\n        const m = Metric.maxCount = Math.max(c, Metric.maxCount);\n        const a = this.dv;\n        const l = a.length;\n\n        if (l != 20 && (l != defaultSize || c*2 > l && c < m/10)) {\n            // Allow rarely (c < m/10) updated metrics to grow to 10 samples\n            a.push(date.getTime(), val);\n        } else {\n            const i = c*2 % l;\n            a[i] = date.getTime();\n            a[i+1] = val;\n        }\n    }\n    \n    latestSince(date) {\n        const offset = this.count * 2 % this.dv.length;\n        return this.dv[offset] > date ? this.dv[offset + 1] : undefined;\n    }\n\n    get val() {\n        return this.latestSince(0);\n    }\n    \n    toString() {\n        try {\n            const c = this.count;\n            const a = this.dv;\n            const l = Math.min(a.length, (c+1)*2);\n            const out = Array(l+1);\n    \n            let last = Date.now();\n            for (let i = c*2 % l, o = 0; o < l; i=(i+l-2)%l, o+=2) {\n                const diff = (a[i] - last)/1000;\n                out[o] = diff > -120 ? `${Math.round(diff)}s` : new Date(a[i]);\n                last = a[i];\n    \n                out[o+1] = a[i+1];\n            }\n            out[out.length-1] = '#' + (this.count+1);\n            return out;\n        } catch(e) {\n            return e.toString();\n        }\n    }\n}\n\nconst ALWAYS_AVAILABLE = [\"invStatue\", \"batInputVolt\"];\nfor (const k of ALWAYS_AVAILABLE) {\n    context.set(k, new Metric());\n}\ncontext.set(\"_config\", {\n    Metric,\n    ALWAYS_AVAILABLE,\n    INV_MAPPING: [0,/*1-5:*/ 8, 9, 0, 0, 10, 7],\n    exclude: new Set([\"_config\",\"eventInfo\",\"dstTime\",\"heartbeatFrequency\",\"heartbeatType2Frequency\",\"installCountry\",\"installTown\",\"ratedPower\",\"rssiVariance\",\"timeZone\",\"utcTime\",\"wifiConnectChannel\",\"wifiEncryptMode\"])\n});",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 420,
+        "wires": [
+            [],
+            [
+                "9c0afaaf1c9e682b"
+            ],
+            [
+                "f5a9c512799ce2b6"
+            ],
+            [
+                "e1b63652f7774068"
+            ],
+            [
+                "7ed57091ae6a7b7e",
+                "579ec36e91546f6a"
+            ],
+            [
+                "63c8f4d68a0b4682"
+            ],
+            [
+                "146d4323fa4bcc26"
+            ],
+            [
+                "f7c1c1b82ddf5ee2"
+            ],
+            [
+                "9f1caa6d592e6df4"
+            ],
+            [
+                "c869e61c13e08a4a"
+            ],
+            [
+                "75713b659cce268e"
+            ]
+        ],
+        "outputLabels": [
+            "",
+            "",
+            "",
+            "4",
+            "",
+            "",
+            "",
+            "8",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "337bb401c7dd0c72",
+        "type": "ecoflow-api",
+        "z": "bc5b0103b541a64e",
+        "name": "MQTT creds",
+        "remote": "964300ff89738424",
+        "serial_number": "",
+        "function": "queryMqttCert",
+        "x": 325,
+        "y": 40,
+        "wires": [
+            [
+                "3e6886e593bb31ec",
+                "8bd94aa9570e2831"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "cbe4046578a125ef",
+        "type": "inject",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "Reset",
+        "payloadType": "str",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "3e6886e593bb31ec"
+            ]
+        ]
+    },
+    {
+        "id": "3e6886e593bb31ec",
+        "type": "function",
+        "z": "bc5b0103b541a64e",
+        "name": "subscribe",
+        "func": "const sn = \"HW51ZKH4SF5P2451\";\nconst p = msg.payload;\n\nlet creds;\nif (!p) {\n    throw new Error(\"falsy payload\");\n} else if (typeof p === 'string') {\n    node.status({text: p});\n    if (p !== \"Reset\") creds = context.get(\"creds\");\n    if (!creds) return [{sn, flush: p === \"Reset\"}];\n} else {\n    creds = p;\n    context.set(\"creds\", creds);\n}\n\n//const disconnect = {action: \"disconnect\"};\nconst connect = {\n        action: \"connect\",\n        broker: {\n            broker: creds.url,\n            port: creds.port,\n            username: creds.certificateAccount,\n            password: creds.certificatePassword\n        }\n    };\nconst sub = {\n    action: \"subscribe\",\n    topic: `/open/${creds.certificateAccount}/${sn}/quota`\n};\n\nreturn [\n    null,\n    [{sn}],\n    [connect, sub]\n];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "2150035aeddb7ba8"
+            ],
+            [
+                "b7d6f4f114452af8"
+            ],
+            [
+                "1593ca14cc0981ee",
+                "8bd94aa9570e2831"
+            ]
+        ]
+    },
+    {
+        "id": "cd3ae8f8ea8890d6",
+        "type": "victron-virtual",
+        "z": "bc5b0103b541a64e",
+        "name": "EcoFlow Batt",
+        "device": "battery",
+        "default_values": false,
+        "battery_capacity": "40",
+        "include_battery_temperature": true,
+        "grid_nrofphases": 1,
+        "include_motor_temp": false,
+        "include_controller_temp": false,
+        "include_coolant_temp": false,
+        "include_motor_rpm": true,
+        "include_motor_direction": true,
+        "position": 0,
+        "pvinverter_nrofphases": 1,
+        "fluid_type": 0,
+        "include_tank_battery": false,
+        "include_tank_temperature": false,
+        "tank_battery_voltage": 3.3,
+        "tank_capacity": 0.2,
+        "temperature_type": 2,
+        "include_humidity": false,
+        "include_pressure": false,
+        "include_temp_battery": false,
+        "temp_battery_voltage": 3.3,
+        "x": 770,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9f1caa6d592e6df4",
+        "type": "victron-output-battery",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.battery/100",
+        "path": "/Dc/0/Power",
+        "serviceObj": {
+            "service": "com.victronenergy.battery/100",
+            "name": "EcoFlow Batt"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Power",
+            "type": "float",
+            "name": "Battery power (W)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b7d6f4f114452af8",
+        "type": "ecoflow-api",
+        "z": "bc5b0103b541a64e",
+        "name": "All data",
+        "remote": "964300ff89738424",
+        "serial_number": "",
+        "function": "queryQuotaAll",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "8bd94aa9570e2831",
+                "dc8c7551f9cff7d8"
+            ]
+        ]
+    },
+    {
+        "id": "dc8c7551f9cff7d8",
+        "type": "function",
+        "z": "bc5b0103b541a64e",
+        "name": "20.1",
+        "func": "const param = {};\nconst prefix = \"20_1.\";\n\nfor (const [key, value] of Object.entries(msg.payload)) {\n    if (key.startsWith(prefix)) {\n        param[key.substring(prefix.length)] = value;\n    }\n}\n\nreturn {payload: param};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 100,
+        "wires": [
+            [
+                "f38d7ea6c6aba445"
+            ]
+        ]
+    },
+    {
+        "id": "f7c1c1b82ddf5ee2",
+        "type": "victron-output-battery",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.battery/100",
+        "path": "/Dc/0/Current",
+        "serviceObj": {
+            "service": "com.victronenergy.battery/100",
+            "name": "EcoFlow Batt"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Current",
+            "type": "float",
+            "name": "Battery current (A)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 520,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "146d4323fa4bcc26",
+        "type": "victron-output-battery",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.battery/100",
+        "path": "/Dc/0/Voltage",
+        "serviceObj": {
+            "service": "com.victronenergy.battery/100",
+            "name": "EcoFlow Batt"
+        },
+        "pathObj": {
+            "path": "/Dc/0/Voltage",
+            "type": "float",
+            "name": "Battery voltage (V)"
+        },
+        "initial": 0,
+        "name": "",
+        "onlyChanges": false,
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1a2b64f285384dd9",
+        "type": "victron-virtual",
+        "z": "bc5b0103b541a64e",
+        "name": "PowerStream",
+        "device": "pvinverter",
+        "default_values": false,
+        "battery_capacity": 25,
+        "include_battery_temperature": false,
+        "grid_nrofphases": 1,
+        "include_motor_temp": false,
+        "include_controller_temp": false,
+        "include_coolant_temp": false,
+        "include_motor_rpm": true,
+        "include_motor_direction": true,
+        "position": 0,
+        "pvinverter_nrofphases": 1,
+        "fluid_type": 0,
+        "include_tank_battery": false,
+        "include_tank_temperature": false,
+        "tank_battery_voltage": 3.3,
+        "tank_capacity": 0.2,
+        "temperature_type": 2,
+        "include_humidity": false,
+        "include_pressure": false,
+        "include_temp_battery": false,
+        "temp_battery_voltage": 3.3,
+        "x": 770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "63c8f4d68a0b4682",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/Ac/PowerLimit",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/Ac/PowerLimit",
+            "type": "float",
+            "name": "Power limit (W)",
+            "mode": "both"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "579ec36e91546f6a",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/Ac/Power",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/Ac/Power",
+            "type": "float",
+            "name": "Total Power (W)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7ed57091ae6a7b7e",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/Ac/L1/Power",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/Ac/L1/Power",
+            "type": "float",
+            "name": "L1 Power (W)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 500,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e1b63652f7774068",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/Ac/L1/Current",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/Ac/L1/Current",
+            "type": "float",
+            "name": "L1 Current (A)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f5a9c512799ce2b6",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/Ac/L1/Voltage",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/Ac/L1/Voltage",
+            "type": "float",
+            "name": "L1 Voltage (V)"
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9c0afaaf1c9e682b",
+        "type": "victron-output-pvinverter",
+        "z": "bc5b0103b541a64e",
+        "service": "com.victronenergy.pvinverter/101",
+        "path": "/StatusCode",
+        "serviceObj": {
+            "service": "com.victronenergy.pvinverter/101",
+            "name": "PowerStream"
+        },
+        "pathObj": {
+            "path": "/StatusCode",
+            "type": "enum",
+            "name": "Status",
+            "enum": {
+                "0": "Startup 0",
+                "1": "Startup 1",
+                "2": "Startup 2",
+                "3": "Startup 3",
+                "4": "Startup 4",
+                "5": "Startup 5",
+                "6": "Startup 6",
+                "7": "Running",
+                "8": "Standby",
+                "9": "Boot loading",
+                "10": "Error",
+                "11": "Running (MPPT)",
+                "12": "Running (Throttled)"
+            }
+        },
+        "name": "",
+        "onlyChanges": false,
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "719149e47a602dee",
+        "type": "mqtt out",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "57f4e1d6e78375c3",
+        "x": 450,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1593ca14cc0981ee",
+        "type": "mqtt in",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "57f4e1d6e78375c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "f38d7ea6c6aba445",
+                "b5206fe2cf161f51"
+            ]
+        ]
+    },
+    {
+        "id": "75713b659cce268e",
+        "type": "influxdb out",
+        "z": "bc5b0103b541a64e",
+        "influxdb": "df2cf7e32ff3c4b5",
+        "name": "",
+        "measurement": "stream",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "m",
+        "bucket": "homelab",
+        "x": 470,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "b5206fe2cf161f51",
+        "type": "trigger",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "op1": "",
+        "op2": "Trigger timeout",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "3e6886e593bb31ec"
+            ]
+        ]
+    },
+    {
+        "id": "2150035aeddb7ba8",
+        "type": "delay",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 40,
+        "wires": [
+            [
+                "337bb401c7dd0c72"
+            ]
+        ]
+    },
+    {
+        "id": "b34ac84e54ec5336",
+        "type": "inject",
+        "z": "bc5b0103b541a64e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 07 * * *",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "Retry",
+        "payloadType": "str",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "3e6886e593bb31ec"
+            ]
+        ]
+    },
+    {
+        "id": "a978ef7f.6851a",
+        "type": "ui_chart",
+        "z": "772e6979.67cd08",
+        "name": "CPU Load - Historical",
+        "group": "7853403.230cdc",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "24 Hours",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 860,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed27cae4.70b728",
+        "type": "inject",
+        "z": "772e6979.67cd08",
+        "name": "update",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "accc5caec111ad4f"
+            ]
+        ]
+    },
+    {
+        "id": "240a76f3.9953ea",
+        "type": "function",
+        "z": "772e6979.67cd08",
+        "name": "array",
+        "func": "node.status({text: msg.payload.loadavg.join(', ')});\nreturn msg.payload.loadavg.map((x) => ({payload: x}));",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 60,
+        "wires": [
+            [
+                "51dfac0c.fdc9c4",
+                "a978ef7f.6851a"
+            ],
+            [
+                "79d3dbc8.390014"
+            ],
+            [
+                "1ff0080f.4e10c8"
+            ]
+        ]
+    },
+    {
+        "id": "51dfac0c.fdc9c4",
+        "type": "ui_gauge",
+        "z": "772e6979.67cd08",
+        "name": "CPU Load 1",
+        "group": "7853403.230cdc",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "1 Minute",
+        "label": "load",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "4",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "79d3dbc8.390014",
+        "type": "ui_gauge",
+        "z": "772e6979.67cd08",
+        "name": "CPU Load 2",
+        "group": "7853403.230cdc",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "5 Minutes",
+        "label": "load",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "4",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1ff0080f.4e10c8",
+        "type": "ui_gauge",
+        "z": "772e6979.67cd08",
+        "name": "CPU Load 3",
+        "group": "7853403.230cdc",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "15 Minutes",
+        "label": "load",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "4",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cc57cdea.f9387",
+        "type": "ui_gauge",
+        "z": "772e6979.67cd08",
+        "name": "Memory Usage",
+        "group": "1d1da0fc.6ab84f",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "1 Minute",
+        "label": "Usage",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "dd0cca19.6f90a8",
+        "type": "function",
+        "z": "772e6979.67cd08",
+        "name": "",
+        "func": "const bytesPayload = context.get(\"bytesPayload\");\n\nreturn [bytesPayload(msg.payload.totalmem), bytesPayload(msg.payload.freemem)];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "function formatBytes(bytes, decimals) {\n   if(bytes === 0) return '0 Byte';\n   var k = 1000; // or 1024 for binary\n   var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];\n   var i = Math.floor(Math.log(bytes) / Math.log(k));\n   return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];\n}\n\nfunction bytesPayload(val) {\n    return {payload: formatBytes(val, 1)};\n}\n\ncontext.set(\"bytesPayload\", bytesPayload)",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "4aeaebd1.24f4c4"
+            ],
+            [
+                "ef649e9b.dce7d"
+            ]
+        ]
+    },
+    {
+        "id": "4aeaebd1.24f4c4",
+        "type": "ui_text",
+        "z": "772e6979.67cd08",
+        "group": "1d1da0fc.6ab84f",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Total Memory",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 840,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ef649e9b.dce7d",
+        "type": "ui_text",
+        "z": "772e6979.67cd08",
+        "group": "1d1da0fc.6ab84f",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Free Memory",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ae72c338.cf1ff",
+        "type": "ui_chart",
+        "z": "772e6979.67cd08",
+        "name": "Memory - 24 Hours",
+        "group": "1d1da0fc.6ab84f",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "24 Hours",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7780c9ca.7581b8",
+        "type": "Loadavg",
+        "z": "772e6979.67cd08",
+        "name": "",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "240a76f3.9953ea"
+            ]
+        ]
+    },
+    {
+        "id": "7cf01d46.a3cad4",
+        "type": "Memory",
+        "z": "772e6979.67cd08",
+        "name": "",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "dd0cca19.6f90a8",
+                "3aa8e9d725b10971"
+            ]
+        ]
+    },
+    {
+        "id": "3aa8e9d725b10971",
+        "type": "change",
+        "z": "772e6979.67cd08",
+        "name": "memusage",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.memusage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "ae72c338.cf1ff",
+                "cc57cdea.f9387"
+            ]
+        ]
+    },
+    {
+        "id": "1faca75889eadc24",
+        "type": "link in",
+        "z": "772e6979.67cd08",
+        "name": "tab",
+        "links": [
+            "060128dfb896100c",
+            "7076dff3f56b98e2"
+        ],
+        "x": 45,
+        "y": 220,
+        "wires": [
+            [
+                "5a255d307516accf"
+            ]
+        ]
+    },
+    {
+        "id": "e57693d3bd84b3f0",
+        "type": "trigger",
+        "z": "772e6979.67cd08",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "-2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "accc5caec111ad4f"
+            ]
+        ]
+    },
+    {
+        "id": "5a255d307516accf",
+        "type": "switch",
+        "z": "772e6979.67cd08",
+        "name": "this tab",
+        "property": "tab",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "System",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "e57693d3bd84b3f0"
+            ]
+        ]
+    },
+    {
+        "id": "def2eb2c9c511a11",
+        "type": "ui_ui_control",
+        "z": "772e6979.67cd08",
+        "name": "",
+        "events": "all",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "d36cf06e7eef297f"
+            ]
+        ]
+    },
+    {
+        "id": "d36cf06e7eef297f",
+        "type": "function",
+        "z": "772e6979.67cd08",
+        "name": "while tab open",
+        "func": "const [add, remove, tabs] = context.get(['add', 'remove', 'tabs']);\nconst id = `${msg.socketip}:${msg.socketid}`;\nconst t = msg.name;\nlet added, removed;\n\n/*\npayload - connect, lost, change, or group.\nsocketid - the ID of the socket (this will change every time the browser reloads the page).\nsocketip - the ip address from where the connection originated.\ntab - the number of the tab. (only for 'change' event).\nname - the name of the tab. (only for 'change' event). \n*/\nswitch(msg.payload) {\n    case \"connect\":\n        break;\n    case \"lost\":\n        removed = remove(id, node);\n        break;\n    case \"change\":\n        removed = remove(id, node);\n        if (t)\n            added = add(id, t);\n}\n\nreturn [added, removed, {payload: tabs}];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "const conns = {};\nconst tabs = {};\n\nfunction add(id, t) {\n    conns[id] = t;\n    const tab = tabs[t] || (tabs[t] = []);\n    tab.push(id);\n    return {topic: 'dashboard', payload: tab, tab: t};\n}\n\nfunction remove(id, node) {\n    const last = conns[id];\n    if (last) {\n        const tab = tabs[last];\n        if (tab) {\n            const idx = tab.indexOf(id);\n            if (idx >= 0) {\n                tab.splice(idx, 1);\n                return {\n                    topic: 'dashboard',\n                    payload: tab,\n                    tab: last,\n                    reset: tab.length===0\n                };\n            }\n        }\n        node.log(`Connection ${id} is missing from tab ${last}.`);\n    }\n}\n\ncontext.set(['conns', 'tabs', 'add', 'remove'], [conns, tabs, add, remove]);",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "060128dfb896100c"
+            ],
+            [
+                "7076dff3f56b98e2"
+            ],
+            [
+                "675f5bada3b7e262"
+            ]
+        ]
+    },
+    {
+        "id": "675f5bada3b7e262",
+        "type": "ui_template",
+        "z": "772e6979.67cd08",
+        "group": "a0c09cbc32a93f22",
+        "name": "Users",
+        "order": 0,
+        "width": "6",
+        "height": "4",
+        "format": "<ul>\n    <li ng-repeat=\"(tab, conns) in msg.payload\">\n        <p>{{tab}}</p>\n        <ul>\n            <li ng-repeat=\"conn in conns\">{{conn}}</li>\n        </ul>\n    </li>\n</ul>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 510,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7076dff3f56b98e2",
+        "type": "link out",
+        "z": "772e6979.67cd08",
+        "name": "tab remove",
+        "mode": "link",
+        "links": [
+            "1faca75889eadc24"
+        ],
+        "x": 475,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "060128dfb896100c",
+        "type": "link out",
+        "z": "772e6979.67cd08",
+        "name": "tab add",
+        "mode": "link",
+        "links": [
+            "1faca75889eadc24",
+            "919042522772b0aa"
+        ],
+        "x": 475,
+        "y": 380,
+        "wires": []
+    }
+]
