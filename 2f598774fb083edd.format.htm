@@ -1,0 +1,178 @@
+<style>
+#decisions th {
+    padding: 0;
+}
+#decisions .slot {
+    width: 5ex;
+}
+#decisions .slot.local {
+    color: grey;
+}
+#decisions .price {
+    font-family: monospace;
+    width: 5ex;
+}
+#decisions .adj, #decisions .hint {
+    font-family: monospace;
+    font-size: 70%;
+    width: 1px;
+    color: grey;
+    text-align: right;
+}
+#decisions .hint {
+    display: inline-block;
+    width: 0;
+    text-shadow: 0.5px 0.5px white;
+}
+#decisions .co2 {
+    font-family: monospace;
+    width: 3ex;
+    text-align: right;
+    padding-right: 1ex;
+}
+#decisions .rb {
+    text-align: center;
+}
+</style>
+<script>
+(function() {
+    //debugger;
+
+    // Time zone helpers
+    const ukFmt = Intl.DateTimeFormat("en-GB", {hour: "2-digit", minute: "2-digit", timeZone: "Europe/London"});
+    const localNow = new Date();
+    const notUk = scope.notUk = localNow.getHours() !== +ukFmt.format(localNow).substr(0, 2);
+
+    // Helper for getting the chart model
+    function huntChart(o) {
+        if (o?.type === "chart" && o?.label === "After") {
+            return o;
+        } else {
+            for (const i of (o?.items || [])) {
+                let ret = huntChart(i);
+                if (ret) return ret;
+            }
+        }
+    }
+
+    function update_cumu(msg) {
+        let cumuChargeHrs = 0, cumuDischargeHrs = 0;
+        let cumuWh = 0;
+        for (const i of msg.payload) {
+            switch(i.s) {
+                case 1:
+                    i.cumuHrs = cumuChargeHrs += 0.5;
+                    break;
+                case 2:
+                    i.cumuWh = cumuWh += i.wh;
+                    i.cumuHrs = cumuDischargeHrs += 0.5;
+                    break
+                default:
+                    i.cumuHrs = undefined;
+            }
+        }
+    }
+    scope.$watchCollection("msg.saved", (newVal, o, scope) => {
+        console.log("cumu", scope.msg, !!newVal);
+        if (newVal) update_cumu(scope.msg);
+    });
+
+    // Decision inheritance
+    const base = {
+        /** Charging mode decision */
+        get resolved() {
+            return this.s;
+        },
+        set resolved(mode) {
+            console.log(`Set ${this.dt}=${mode}`);
+            if (mode) {
+                this.s = mode;
+                this.saved[this.dt] = mode;
+            } else {
+                delete this.s;
+                delete this.saved[this.dt];
+            }
+        }
+    };
+
+    scope.$watch("msg", (msg) => {
+        // This function will receive all messages sent to the dashboard & any saved ones.
+        if (msg?.topic === 'decisions_table_v2' && !msg.decisionTableProcessed) {
+            console.log("$Watch", msg);
+            base.s = msg.currMultiMode;
+            base.saved = msg.saved;
+            let chartMin = 0;
+            const con = msg.consumption || {};
+
+            msg.payload.reduce((prev, curr, idx) => {
+                Object.setPrototypeOf(curr, prev);
+
+                s = msg.saved[curr.dt];
+                if (s !== undefined) {
+                    curr.s = s;
+                }
+
+                const d = new Date(curr.dt);
+                if (notUk) curr.d = d;
+                const uk = curr.ukFmt = ukFmt.format(d);
+                const hour = +uk.substring(0, 2);
+                curr.wh = con[hour];
+                const p = curr.p;
+                if (p < 0) {
+                    curr.hint = 1;
+                } else if (p > 20 || curr.c > 180 || (hour >= 16 && hour < 20)) {
+                    curr.hint = 2;
+                } else {
+                    curr.hint = null;
+                }
+                if (p < chartMin) chartMin = p;
+                return curr;
+            }, base);
+
+            msg.decisionTableProcessed = true;
+            update_cumu(msg);
+
+            let chart = huntChart(angular.element(document.body).data()["$ngControllerController"].selectedTab);
+            if (chart) {
+                chart.ymin = String(Math.floor(chartMin / 50) * 50);
+            }
+        }
+    });
+
+    scope.factor=0.8;
+})();
+</script>
+
+<div style="display:flex; flex-direction: row;">
+    <label for="Cycle-factor">Cycle factor:</label>
+    <input id="Cycle-factor" type="range" ng-model="factor" min="0.01" max="1" step="0.01" style="flex-grow: 1">
+    <span>{{factor | number: 2}}</span>
+</div>
+
+<table id="decisions" ng-form="decisions">
+<thead><tr>
+    <th>UK</th><th ng-if="::notUk">Local</th>
+    <th>Pence</th><th colspan="2">CO<sub>2</sub></th>
+    <th title="1- Charge">C</th><th title="2- Invert">I</th><th title="3 - Bypass">B</th>
+</tr></thead>
+<tbody>
+    <tr ng-repeat="i in msg.payload track by i.dt">
+        <th class="slot" title="{{::i.dt}}">{{::i.ukFmt}}</th>
+        <th class="slot local" ng-if="::notUk">{{::i.localDate | date: 'HH:mm'}}</th>
+
+        <td class="price" style="padding-left: {{i.p/5 | number: 0}}ex">
+            {{i.p}}<span class="adj" ng-show="factor<1 && i.p>1 && i.p<=25"> {{i.p / factor | number: 0}}</span>
+        </td>
+        <td class="co2">{{i.c}}</td>
+        <td class="adj">{{i.c / factor | number: 0}}</td>
+        <td class="rb" ng-repeat="v in ::[1,2,3]" style="{{i.hint === v ? 'background-color: green;' : ''}}">
+            <input type="radio" ng-model="i.resolved" ng-value="::v" ng-dblclick="i.resolved=undefined"
+                   style="{{i.resolved === v && !i.hasOwnProperty('s') ? 'opacity: 0.5;' : ''}}"><!--
+            --><span class="hint" ng-show="i.s === v && i.cumuHrs>0 && i.cumuHrs %2 === 0">{{i.cumuHrs}}h<!--
+                --><span ng-if="::v===2"> {{i.cumuWh | number: 0}}Wh</span></span>
+        </td>
+    </tr>
+</tbody>
+</table>
+<button ng-disabled="!msg.saved" style="{{decisions.$pristine ? 'opacity: 0.5;' : ''}}"
+    ng-click="send({payload: msg.saved}); decisions.$setPristine()">Save</button>
