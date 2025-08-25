@@ -99,7 +99,7 @@
         // This function will receive all messages sent to the dashboard & any saved ones.
         if (msg?.topic === 'decisions_table_v2' && !msg.decisionTableProcessed) {
             console.log("$Watch", msg);
-            base.s = msg.currMultiMode;
+            base.s = msg.saved.curr;
             base.saved = msg.saved;
             let chartMin = 0;
             const con = msg.consumption || {};

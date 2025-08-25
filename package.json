@@ -4,6 +4,7 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
+	"@qc00/vcs-friendly-node-red-storage": "^0.1.0",
         "@shaoranlaos/node-red-contrib-ecoflow-http-api": "~1.0.1",
         "moment": "^2.29.4",
         "node-red-contrib-alexa-smart-home": "~0.4.68",

@@ -1,10 +1,116 @@
-[{"id": "26d9df42cb8dafc6","type": "tab","label": "MultiPlus","disabled": false,"info": "","env": []},
+[{"id": "26d9df42cb8dafc6","type": "tab","label": "Control Loop","disabled": false,"info": "","env": []},
 {"id": "f4e68de234cff620","type": "tab","label": "InfluxDB","disabled": false,"info": "","env": []},
 {"id": "8c4da3b4870d50a4","type": "tab","label": "Control UI","disabled": false,"info": "","env": []},
 {"id": "bc5b0103b541a64e","type": "tab","label": "Ecoflow","disabled": false,"info": "","env": []},
 {"id": "772e6979.67cd08","type": "tab","label": "System","disabled": false},
+{
+  "id": "4d0365b26fba9582",
+  "type": "subflow",
+  "name": "Rate limit",
+  "info": "If you need more complicated condition(s) (beyond % change) to override the rate, simply add another path for the same message to reach this node.\n(This is safe because the output from this node is deduped.)",
+  "category": "",
+  "in": [
+    {
+      "x": 60,
+      "y": 80,
+      "wires": [
+        {
+          "id": "b6515b8c4811a9af"
+        }
+      ]
+    }
+  ],
+  "out": [
+    {
+      "x": 420,
+      "y": 60,
+      "wires": [
+        {
+          "id": "b6515b8c4811a9af",
+          "port": 0
+        }
+      ]
+    }
+  ],
+  "env": [
+    {
+      "name": "GAP",
+      "type": "num",
+      "value": "1",
+      "ui": {
+        "icon": "font-awesome/fa-clock-o",
+        "label": {
+          "en-US": "Gap (seconds)"
+        },
+        "type": "input",
+        "opts": {
+          "types": [
+            "num"
+          ]
+        }
+      }
+    },
+    {
+      "name": "CHANGE",
+      "type": "num",
+      "value": "",
+      "ui": {
+        "icon": "font-awesome/fa-exchange",
+        "label": {
+          "en-US": "Change (%)"
+        },
+        "type": "input",
+        "opts": {
+          "types": [
+            "num"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GAPS2KEEP",
+      "type": "num",
+      "value": "10",
+      "ui": {
+        "icon": "font-awesome/fa-align-left",
+        "label": {
+          "en-US": "Keep"
+        },
+        "type": "input",
+        "opts": {
+          "types": [
+            "num"
+          ]
+        }
+      }
+    },
+    {
+      "name": "",
+      "type": "str",
+      "value": "",
+      "ui": {
+        "label": {
+          "en-US": "gaps of message IDs for dedup and stats"
+        },
+        "type": "none"
+      }
+    }
+  ],
+  "meta": {},
+  "color": "#E2D96E",
+  "icon": "node-red/timer.svg",
+  "status": {
+    "x": 420,
+    "y": 100,
+    "wires": [
+      {
+        "id": "b6515b8c4811a9af",
+        "port": 1
+      }
+    ]
+  }
+},
 {"id": "accc5caec111ad4f","type": "junction","z": "772e6979.67cd08","wires": [["7cf01d46.a3cad4","7780c9ca.7581b8"]]},
-{"id": "42ac2fc291cc64cb","type": "junction","z": "26d9df42cb8dafc6","wires": [["0c87b17726237c91","14941b58fef1f2a4"]]},
 {"id": "f38d7ea6c6aba445","type": "junction","z": "bc5b0103b541a64e","wires": [["575b987579d3c1ff"]]},
 {"id": "victron-client-id","type": "victron-client"},
 {"id": "8fde2b2df4b484df","type": "alexa-smart-home-v3-conf","username": "bh7dstpshwt4","mqttserver": "mq-red.cb-net.co.uk","webapiurl": "red.cb-net.co.uk","contextName": "memory"},
@@ -193,6 +299,25 @@
   "rejectUnauthorized": false
 },
 {
+  "id": "b6515b8c4811a9af",
+  "type": "function",
+  "z": "4d0365b26fba9582",
+  "name": "logic",
+  "outputs": 2,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "context.set(\"state\", {last: new Date(), ids: [undefined], SHORT_BUCKET: Symbol(\"SHORT_BUCKET\")})",
+  "finalize": "",
+  "libs": [],
+  "wires": [
+    [],
+    []
+  ],
+  "_vcsOffload": [
+    "func.js"
+  ]
+},
+{
   "id": "a25d96493d3b1337",
   "type": "victron-output-generator",
   "z": "26d9df42cb8dafc6",
@@ -260,31 +385,6 @@
   "onlyChanges": false,
   "wires": []
 },
-{
-  "id": "7adc5df9ef1b7ab3",
-  "type": "victron-input-vebus",
-  "z": "26d9df42cb8dafc6",
-  "service": "com.victronenergy.vebus/261",
-  "path": "/Dc/0/Voltage",
-  "serviceObj": {
-    "service": "com.victronenergy.vebus/261",
-    "name": "MultiPlus Compact 24/1600/40-16"
-  },
-  "pathObj": {
-    "path": "/Dc/0/Voltage",
-    "type": "float",
-    "name": "Battery voltage (V)"
-  },
-  "name": "Multi Compact | Batt Volt",
-  "onlyChanges": true,
-  "roundValues": "2",
-  "wires": [
-    [
-      "23d1edc193f3e9f8",
-      "aebaf2bb57f317f4"
-    ]
-  ]
-},
 {"id": "9e5ac39e711022f0","type": "alexa-smart-home-v3-state","z": "26d9df42cb8dafc6","conf": "8fde2b2df4b484df","device": "56832","name": "Battery Voltage","wires": []},
 {
   "id": "14941b58fef1f2a4",
@@ -340,30 +440,6 @@
     ]
   ]
 },
-{"id": "6608896aa567eac0","type": "comment","z": "26d9df42cb8dafc6","name": "Links","info": "[Alexa devices](https://red.cb-net.co.uk/devices)","wires": []},
-{
-  "id": "23d1edc193f3e9f8",
-  "type": "delay",
-  "z": "26d9df42cb8dafc6",
-  "name": "",
-  "pauseType": "rate",
-  "timeout": "5",
-  "timeoutUnits": "seconds",
-  "rate": "1",
-  "nbRateUnits": "5",
-  "rateUnits": "minute",
-  "randomFirst": "1",
-  "randomLast": "5",
-  "randomUnits": "seconds",
-  "drop": true,
-  "allowrate": false,
-  "outputs": 1,
-  "wires": [
-    [
-      "42ac2fc291cc64cb"
-    ]
-  ]
-},
 {
   "id": "0c87b17726237c91",
   "type": "function",
@@ -392,48 +468,6 @@
 },
 {"id": "c614bf0ceeadedfd","type": "alexa-smart-home-v3-state","z": "26d9df42cb8dafc6","conf": "8fde2b2df4b484df","device": "56971","name": "Battery Low","wires": []},
 {
-  "id": "9d9ce450a2df9620",
-  "type": "victron-output-custom",
-  "z": "26d9df42cb8dafc6",
-  "service": "com.victronenergy.settings",
-  "path": "/Settings/Alarm/System/GridLost",
-  "serviceObj": {
-    "service": "com.victronenergy.settings",
-    "name": "com.victronenergy.settings"
-  },
-  "pathObj": {
-    "path": "/Settings/Alarm/System/GridLost",
-    "name": "/Settings/Alarm/System/GridLost",
-    "type": "number"
-  },
-  "name": "Multi Compact | Grid Lost",
-  "onlyChanges": false,
-  "wires": []
-},
-{
-  "id": "a9315f97739fb8c8",
-  "type": "inject",
-  "z": "26d9df42cb8dafc6",
-  "name": "",
-  "props": [
-    {
-      "p": "payload"
-    }
-  ],
-  "repeat": "",
-  "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
-  "topic": "",
-  "payload": "0",
-  "payloadType": "num",
-  "wires": [
-    [
-      "9d9ce450a2df9620"
-    ]
-  ]
-},
-{
   "id": "3d46533cb912f3fc",
   "type": "inject",
   "z": "26d9df42cb8dafc6",
@@ -457,24 +491,6 @@
   "wires": [
     [
       "0c87b17726237c91"
-    ]
-  ]
-},
-{
-  "id": "aebaf2bb57f317f4",
-  "type": "rbe",
-  "z": "26d9df42cb8dafc6",
-  "name": "> 3% change",
-  "func": "deadband",
-  "gap": "3%",
-  "start": "",
-  "inout": "out",
-  "septopics": false,
-  "property": "payload",
-  "topi": "topic",
-  "wires": [
-    [
-      "42ac2fc291cc64cb"
     ]
   ]
 },
@@ -622,6 +638,102 @@
     ]
   ],
   "info": "Value\tMeaning\n0\tLoad output off\n1\tAutomatic control / batterylife (default)\n2\tAlternative control 1 (off<11.1V, on>13.1V)\n3\tAlternative control 2 (off<11.8V, on>14.0V)\n4\tAlways on\n5\tUser defined settings 1 (off<Vlow, on>Vhigh)\n6\tUser defined settings 2 (off<Vlow<on<Vhigh<off)\n"
+},
+{
+  "id": "b178052319a3f20b",
+  "type": "victron-input-system",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.system/0",
+  "path": "/Dc/Battery/Voltage",
+  "serviceObj": {
+    "service": "com.victronenergy.system/0",
+    "name": "Venus system"
+  },
+  "pathObj": {
+    "path": "/Dc/Battery/Voltage",
+    "type": "float",
+    "name": "Battery voltage (V)"
+  },
+  "name": "Venus System | Batt Volt",
+  "onlyChanges": true,
+  "roundValues": "2",
+  "wires": [
+    [
+      "427cdb10cf8f621e"
+    ]
+  ]
+},
+{
+  "id": "9d9ce450a2df9620",
+  "type": "victron-output-custom",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.settings",
+  "path": "/Settings/Alarm/System/GridLost",
+  "serviceObj": {
+    "service": "com.victronenergy.settings",
+    "name": "com.victronenergy.settings"
+  },
+  "pathObj": {
+    "path": "/Settings/Alarm/System/GridLost",
+    "name": "/Settings/Alarm/System/GridLost",
+    "type": "number"
+  },
+  "name": "Multi Compact | Grid Lost",
+  "onlyChanges": false,
+  "wires": []
+},
+{
+  "id": "a9315f97739fb8c8",
+  "type": "inject",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "payload": "0",
+  "payloadType": "num",
+  "wires": [
+    [
+      "9d9ce450a2df9620"
+    ]
+  ]
+},
+{
+  "id": "427cdb10cf8f621e",
+  "type": "subflow:4d0365b26fba9582",
+  "z": "26d9df42cb8dafc6",
+  "name": "300s/2%",
+  "env": [
+    {
+      "name": "GAP",
+      "value": "300",
+      "type": "num"
+    },
+    {
+      "name": "CHANGE",
+      "value": "2",
+      "type": "num"
+    },
+    {
+      "name": "BIG_GAP",
+      "value": "300",
+      "type": "num"
+    }
+  ],
+  "wires": [
+    [
+      "0c87b17726237c91",
+      "14941b58fef1f2a4",
+      "77d8947e23c939dc"
+    ]
+  ]
 },
 {
   "id": "a73efc356634eec3",
@@ -1665,7 +1777,12 @@
   "timeout": 0,
   "noerr": 0,
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "metricModule",
+      "module": "@qc00/node-red-subsampling/Metric.js"
+    }
+  ],
   "wires": [
     [],
     [
@@ -1747,7 +1864,7 @@
   "repeat": "",
   "crontab": "",
   "once": true,
-  "onceDelay": "1",
+  "onceDelay": "2",
   "topic": "",
   "payload": "Reset",
   "payloadType": "str",

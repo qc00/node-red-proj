@@ -1,6 +1,5 @@
-const [currMultiMode, {wattMs, durations}, agile, carbon] = global.get(['currMultiMode', 'consumption', 'agile', 'carbon']);
-const saved = global.get('multiMode') || {};
-const cutoff = global.get('roundNow')();
+const [saved, {wattMs, durations}, agile, carbon] = global.get(['multiMode', 'consumption', 'agile', 'carbon']);
+const cutoff = saved.roundNow();
 const keys = new Set(Object.keys(agile).concat(Object.keys(carbon)));
 
 const graphss = [[[], [], []], [[], [], []]], table = [];
@@ -30,5 +29,5 @@ for (const h in wattMs) {
 return [
     {payload: [{"series": ["Agile", "CO2", "CO2 Actual"], "data": graphss[0]}]},
     {payload: [{"series": ["Agile", "CO2", "CO2 Actual"], "data": graphss[1]}]},
-    {payload: table, saved, consumption, currMultiMode, topic: 'decisions_table_v2'}
+    {payload: table, saved, consumption, topic: 'decisions_table_v2'}
 ];
