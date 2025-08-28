@@ -1,5 +1,5 @@
 const [saved, {wattMs, durations}, agile, carbon] = global.get(['multiMode', 'consumption', 'agile', 'carbon']);
-const cutoff = saved.roundNow();
+const cutoff = shared.roundNow();
 const keys = new Set(Object.keys(agile).concat(Object.keys(carbon)));
 
 const graphss = [[[], [], []], [[], [], []]], table = [];

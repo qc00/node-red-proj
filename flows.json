@@ -448,8 +448,14 @@
   "outputs": 3,
   "timeout": "",
   "noerr": 0,
+  "initialize": "shared.ensure(global, \"multiMode\", Object)",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "shared",
+      "module": "@qc00/qess/shared.mjs"
+    }
+  ],
   "wires": [
     [
       "c614bf0ceeadedfd"
@@ -462,8 +468,7 @@
     ]
   ],
   "_vcsOffload": [
-    "func.js",
-    "initialize.js"
+    "func.js"
   ]
 },
 {"id": "c614bf0ceeadedfd","type": "alexa-smart-home-v3-state","z": "26d9df42cb8dafc6","conf": "8fde2b2df4b484df","device": "56971","name": "Battery Low","wires": []},
@@ -524,7 +529,12 @@
   "noerr": 0,
   "initialize": "",
   "finalize": "",
-  "libs": [],
+  "libs": [
+    {
+      "var": "shared",
+      "module": "@qc00/qess/shared.mjs"
+    }
+  ],
   "wires": [
     [
       "3d72852a0bf4fb9b"
@@ -732,6 +742,29 @@
       "0c87b17726237c91",
       "14941b58fef1f2a4",
       "77d8947e23c939dc"
+    ]
+  ]
+},
+{
+  "id": "63bf51d3484ac786",
+  "type": "inject",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "payload": "0",
+  "payloadType": "num",
+  "wires": [
+    [
+      "3cd34a2658d626ef"
     ]
   ]
 },
@@ -1288,11 +1321,12 @@
   "outputs": 3,
   "timeout": "",
   "noerr": 0,
+  "initialize": "shared.ensure(global, \"multiMode\", Object)",
   "finalize": "",
   "libs": [
     {
-      "var": "moment",
-      "module": "moment"
+      "var": "shared",
+      "module": "@qc00/qess/shared.mjs"
     }
   ],
   "wires": [
@@ -1308,8 +1342,7 @@
   ],
   "info": "1 - Charger Only\n2 - Inverter Only\n3 - On",
   "_vcsOffload": [
-    "func.js",
-    "initialize.js"
+    "func.js"
   ]
 },
 {

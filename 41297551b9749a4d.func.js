@@ -1,6 +1,6 @@
 const {lastDate, wattMs, durations} = c = global.get("consumption");
 
-const localHour = global.get("toLocalHour");
+const localHour = context.get("toLocalHour");
 function decay(msFromNow) { return Math.pow(0.999999, msFromNow / 1000); }
 
 if (msg.topic.endsWith("| Watts")) {
