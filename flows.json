@@ -112,6 +112,8 @@
 },
 {"id": "accc5caec111ad4f","type": "junction","z": "772e6979.67cd08","wires": [["7cf01d46.a3cad4","7780c9ca.7581b8"]]},
 {"id": "f38d7ea6c6aba445","type": "junction","z": "bc5b0103b541a64e","wires": [["575b987579d3c1ff"]]},
+{"id": "a83f4b689668f82d","type": "junction","z": "bc5b0103b541a64e","wires": [["64609e40dc0de632","719149e47a602dee"]]},
+{"id": "b74443a7d5261382","type": "junction","z": "bc5b0103b541a64e","wires": [["3ea03ff79236bf53"]],"l": false},
 {"id": "victron-client-id","type": "victron-client"},
 {"id": "8fde2b2df4b484df","type": "alexa-smart-home-v3-conf","username": "bh7dstpshwt4","mqttserver": "mq-red.cb-net.co.uk","webapiurl": "red.cb-net.co.uk","contextName": "memory"},
 {
@@ -298,6 +300,7 @@
   "timeout": "10",
   "rejectUnauthorized": false
 },
+{"id": "25b988138f80b2b2","type": "global-config","name": "global-config","env": [{"name": "POWERSTREAM_SN","value": "HW51ZKH4SF5P2451","type": "str"}]},
 {
   "id": "b6515b8c4811a9af",
   "type": "function",
@@ -768,6 +771,32 @@
     ]
   ]
 },
+{
+  "id": "c1868e53aaeddccc",
+  "type": "victron-input-vebus",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.vebus/261",
+  "path": "/Ac/Out/L1/P",
+  "serviceObj": {
+    "service": "com.victronenergy.vebus/261",
+    "name": "MultiPlus Compact 24/1600/40-16"
+  },
+  "pathObj": {
+    "path": "/Ac/Out/L1/P",
+    "type": "float",
+    "name": "Output power phase 1 (W)"
+  },
+  "initial": "",
+  "name": "Multi Compact | Output Power",
+  "onlyChanges": true,
+  "roundValues": "0",
+  "wires": [
+    [
+      "b1bb7c98e59bbb23"
+    ]
+  ]
+},
+{"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Power demand","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
 {
   "id": "a73efc356634eec3",
   "type": "victron-input-vebus",
@@ -1768,6 +1797,35 @@
   ]
 },
 {
+  "id": "1a2b64f285384dd9",
+  "type": "victron-virtual",
+  "z": "bc5b0103b541a64e",
+  "name": "PowerStream",
+  "device": "pvinverter",
+  "default_values": false,
+  "battery_capacity": 25,
+  "include_battery_temperature": false,
+  "grid_nrofphases": 1,
+  "include_motor_temp": false,
+  "include_controller_temp": false,
+  "include_coolant_temp": false,
+  "include_motor_rpm": true,
+  "include_motor_direction": true,
+  "position": 0,
+  "pvinverter_nrofphases": 1,
+  "fluid_type": 0,
+  "include_tank_battery": false,
+  "include_tank_temperature": false,
+  "tank_battery_voltage": 3.3,
+  "tank_capacity": 0.2,
+  "temperature_type": 2,
+  "include_humidity": false,
+  "include_pressure": false,
+  "include_temp_battery": false,
+  "temp_battery_voltage": 3.3,
+  "wires": []
+},
+{
   "id": "c869e61c13e08a4a",
   "type": "victron-output-battery",
   "z": "bc5b0103b541a64e",
@@ -1912,7 +1970,7 @@
   "type": "function",
   "z": "bc5b0103b541a64e",
   "name": "subscribe",
-  "outputs": 3,
+  "outputs": 4,
   "timeout": 0,
   "noerr": 0,
   "initialize": "",
@@ -1928,6 +1986,9 @@
     [
       "1593ca14cc0981ee",
       "8bd94aa9570e2831"
+    ],
+    [
+      "b74443a7d5261382"
     ]
   ],
   "_vcsOffload": [
@@ -1988,7 +2049,7 @@
   "z": "bc5b0103b541a64e",
   "name": "All data",
   "remote": "964300ff89738424",
-  "serial_number": "",
+  "serial_number": "${POWERSTREAM_SN}",
   "function": "queryQuotaAll",
   "wires": [
     [
@@ -2054,35 +2115,6 @@
   "initial": 0,
   "name": "",
   "onlyChanges": false,
-  "wires": []
-},
-{
-  "id": "1a2b64f285384dd9",
-  "type": "victron-virtual",
-  "z": "bc5b0103b541a64e",
-  "name": "PowerStream",
-  "device": "pvinverter",
-  "default_values": false,
-  "battery_capacity": 25,
-  "include_battery_temperature": false,
-  "grid_nrofphases": 1,
-  "include_motor_temp": false,
-  "include_controller_temp": false,
-  "include_coolant_temp": false,
-  "include_motor_rpm": true,
-  "include_motor_direction": true,
-  "position": 0,
-  "pvinverter_nrofphases": 1,
-  "fluid_type": 0,
-  "include_tank_battery": false,
-  "include_tank_temperature": false,
-  "tank_battery_voltage": 3.3,
-  "tank_capacity": 0.2,
-  "temperature_type": 2,
-  "include_humidity": false,
-  "include_pressure": false,
-  "include_temp_battery": false,
-  "temp_battery_voltage": 3.3,
   "wires": []
 },
 {
@@ -2335,6 +2367,128 @@
   "expiry": "",
   "broker": "57f4e1d6e78375c3",
   "wires": []
+},
+{
+  "id": "087a5cc32a549cfd",
+  "type": "link in",
+  "z": "bc5b0103b541a64e",
+  "name": "Power req",
+  "links": [
+    "b1bb7c98e59bbb23"
+  ],
+  "wires": [
+    [
+      "6340f3c12439b501"
+    ]
+  ],
+  "l": true
+},
+{
+  "id": "a233448c163c0427",
+  "type": "change",
+  "z": "bc5b0103b541a64e",
+  "name": "Perm Watts",
+  "rules": [
+    {
+      "t": "set",
+      "p": "topic",
+      "pt": "msg",
+      "to": "topicSet",
+      "tot": "flow"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\t    \"id\": $millis(),\t    \"version\": \"1.0\",\t    \"cmdCode\": \"WN511_SET_PERMANENT_WATTS_PACK\",\t    \"params\": {\t        \"permanentWatts\": payload * 10 + 150\t    }\t}",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "wires": [
+    [
+      "a83f4b689668f82d"
+    ]
+  ]
+},
+{
+  "id": "64609e40dc0de632",
+  "type": "debug",
+  "z": "bc5b0103b541a64e",
+  "name": "Ecoflow commands",
+  "active": true,
+  "tosidebar": true,
+  "console": true,
+  "tostatus": false,
+  "complete": "payload.params",
+  "targetType": "msg",
+  "statusVal": "",
+  "statusType": "auto",
+  "wires": []
+},
+{
+  "id": "66b8583e12e11c82",
+  "type": "rbe",
+  "z": "bc5b0103b541a64e",
+  "name": "±20",
+  "func": "deadband",
+  "gap": "20",
+  "start": "",
+  "inout": "out",
+  "septopics": false,
+  "property": "payload",
+  "topi": "topic",
+  "wires": [
+    [
+      "a233448c163c0427"
+    ]
+  ]
+},
+{
+  "id": "6340f3c12439b501",
+  "type": "delay",
+  "z": "bc5b0103b541a64e",
+  "name": "1/min",
+  "pauseType": "rate",
+  "timeout": "5",
+  "timeoutUnits": "seconds",
+  "rate": "1",
+  "nbRateUnits": "1",
+  "rateUnits": "minute",
+  "randomFirst": "1",
+  "randomLast": "5",
+  "randomUnits": "seconds",
+  "drop": true,
+  "allowrate": false,
+  "outputs": 1,
+  "wires": [
+    [
+      "66b8583e12e11c82"
+    ]
+  ]
+},
+{
+  "id": "3ea03ff79236bf53",
+  "type": "mqtt in",
+  "z": "bc5b0103b541a64e",
+  "name": "set_reply",
+  "topic": "",
+  "qos": "2",
+  "datatype": "json",
+  "broker": "57f4e1d6e78375c3",
+  "nl": false,
+  "rap": true,
+  "rh": 0,
+  "inputs": 1,
+  "wires": [
+    [
+      "64609e40dc0de632"
+    ]
+  ]
 },
 {
   "id": "a978ef7f.6851a",

@@ -1,16 +1,16 @@
-const sn = "HW51ZKH4SF5P2451";
+let creds, topicBase;
 const p = msg.payload;
-
-let creds;
 if (!p) {
     throw new Error("falsy payload");
 } else if (typeof p === 'string') {
     node.status({text: p});
-    if (p !== "Reset") creds = context.get("creds");
-    if (!creds) return [{sn, flush: p === "Reset"}];
+    if (p !== "Reset") [creds, topicBase] = context.get(["creds","topicBase"]);
+    if (!creds) return [{flush: p === "Reset"}];
 } else {
     creds = p;
-    context.set("creds", creds);
+    topicBase = `/open/${creds.certificateAccount}/${env.get("POWERSTREAM_SN")}/`;
+    context.set(["creds","topicBase"], [creds, topicBase]);
+    flow.set("topicSet", topicBase + "set")
 }
 
 //const disconnect = {action: "disconnect"};
@@ -23,13 +23,10 @@ const connect = {
             password: creds.certificatePassword
         }
     };
-const sub = {
-    action: "subscribe",
-    topic: `/open/${creds.certificateAccount}/${sn}/quota`
-};
 
 return [
     null,
-    [{sn}],
-    [connect, sub]
+    [{}],
+    [connect, {action: "subscribe", topic: topicBase + "quota"}],
+    [{action: "subscribe", topic: topicBase + "set_reply"}]
 ];
