@@ -60,7 +60,7 @@ declare const node: {
 };
 
 declare const env: {
-    get(name: string): string | undefined;
+    get(name: string): any;
 };
 
 declare const RED: {

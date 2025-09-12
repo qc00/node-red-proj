@@ -4,11 +4,10 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
-        "@qc00/node-red-subsampling": "file:../node-red-subsampling",
         "@qc00/qess": "file:qess",
+        "@qc00/rxnr": "file:../rxnr",
         "@qc00/vcs-friendly-node-red-storage": "file:../vcs-friendly-node-red-storage",
         "@shaoranlaos/node-red-contrib-ecoflow-http-api": "~1.0.1",
-        "moment": "^2.29.4",
         "node-red-contrib-alexa-smart-home": "~0.4.68",
         "node-red-contrib-credentials": "~0.2.3",
         "node-red-contrib-influxdb": "~0.7.0",

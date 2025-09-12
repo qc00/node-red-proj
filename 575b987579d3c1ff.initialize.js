@@ -11,6 +11,6 @@ const config = {
 const Metric = config.Metric = metricModule.Metric.bind(null, config);
 
 for (const k of config.ALWAYS_AVAILABLE) {
-    context.set(k, new Metric());
+    flow.set(k, new Metric());
 }
 context.set("_config", config);

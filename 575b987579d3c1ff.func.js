@@ -14,9 +14,9 @@ if (msg.topic) { // MQTT
     }
 
     for (let key in p) {
-        let existing = context.get(key);
+        let existing = flow.get(key);
         if (!existing) {
-            context.set(key, existing = new config.Metric());
+            flow.set(key, existing = new config.Metric());
         }
         existing.push(p[key], date);
     }
@@ -24,15 +24,15 @@ if (msg.topic) { // MQTT
     node.status({text: date.toLocaleString()});
 } else {
     const {ALWAYS_AVAILABLE} = config;
-    const alwaysAvailable = context.get(ALWAYS_AVAILABLE);
+    const alwaysAvailable = flow.get(ALWAYS_AVAILABLE);
     for (let i in ALWAYS_AVAILABLE) {
         alwaysAvailable[i].push(p[ALWAYS_AVAILABLE[i]], date);
     }
 }
 
-const pv2 = context.get('pv2InputWatts')?.latestSince(date-60000) || 0;
-const invStatue = context.get('invStatue').val;
-const batInputVolt = context.get('batInputVolt').val;
+const pv2 = flow.get('pv2InputWatts')?.latestSince(date-60000) || 0;
+const invStatue = flow.get('invStatue').val;
+const batInputVolt = flow.get('batInputVolt').val;
 
 function pl(val, factor) {
     return val || val === 0 ? {payload: factor ? val / factor : val} : null;

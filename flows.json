@@ -23,13 +23,18 @@
   "out": [
     {
       "x": 420,
-      "y": 60,
+      "y": 40,
       "wires": [
         {
           "id": "b6515b8c4811a9af",
           "port": 0
         }
       ]
+    },
+    {
+      "x": 420,
+      "y": 80,
+      "wires": []
     }
   ],
   "env": [
@@ -101,7 +106,7 @@
   "icon": "node-red/timer.svg",
   "status": {
     "x": 420,
-    "y": 100,
+    "y": 120,
     "wires": [
       {
         "id": "b6515b8c4811a9af",
@@ -114,6 +119,7 @@
 {"id": "f38d7ea6c6aba445","type": "junction","z": "bc5b0103b541a64e","wires": [["575b987579d3c1ff"]]},
 {"id": "a83f4b689668f82d","type": "junction","z": "bc5b0103b541a64e","wires": [["64609e40dc0de632","719149e47a602dee"]]},
 {"id": "b74443a7d5261382","type": "junction","z": "bc5b0103b541a64e","wires": [["3ea03ff79236bf53"]],"l": false},
+{"id": "76f7c8e080d80993","type": "junction","z": "f4e68de234cff620","wires": [["7ed89de6f42f5b90"]]},
 {"id": "victron-client-id","type": "victron-client"},
 {"id": "8fde2b2df4b484df","type": "alexa-smart-home-v3-conf","username": "bh7dstpshwt4","mqttserver": "mq-red.cb-net.co.uk","webapiurl": "red.cb-net.co.uk","contextName": "memory"},
 {
@@ -448,7 +454,7 @@
   "type": "function",
   "z": "26d9df42cb8dafc6",
   "name": "MCP",
-  "outputs": 3,
+  "outputs": 4,
   "timeout": "",
   "noerr": 0,
   "initialize": "shared.ensure(global, \"multiMode\", Object)",
@@ -462,6 +468,9 @@
   "wires": [
     [
       "c614bf0ceeadedfd"
+    ],
+    [
+      "37037e698ce4bfa1"
     ],
     [
       "abb2dcd790b183c5"
@@ -609,74 +618,6 @@
   ]
 },
 {
-  "id": "3cd34a2658d626ef",
-  "type": "exec",
-  "z": "26d9df42cb8dafc6",
-  "command": "vreg.py com.victronenergy.solarcharger.ttyUSB1 S 0xEDAB",
-  "addpay": "payload",
-  "append": "",
-  "useSpawn": "false",
-  "timer": "10",
-  "winHide": false,
-  "oldrc": false,
-  "name": "Set Load output",
-  "wires": [
-    [
-      "77d8947e23c939dc"
-    ],
-    [],
-    []
-  ]
-},
-{
-  "id": "2df045c834ad9e8f",
-  "type": "inject",
-  "z": "26d9df42cb8dafc6",
-  "name": "",
-  "props": [
-    {
-      "p": "payload"
-    }
-  ],
-  "repeat": "",
-  "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
-  "topic": "",
-  "payload": "4",
-  "payloadType": "num",
-  "wires": [
-    [
-      "3cd34a2658d626ef"
-    ]
-  ],
-  "info": "Value\tMeaning\n0\tLoad output off\n1\tAutomatic control / batterylife (default)\n2\tAlternative control 1 (off<11.1V, on>13.1V)\n3\tAlternative control 2 (off<11.8V, on>14.0V)\n4\tAlways on\n5\tUser defined settings 1 (off<Vlow, on>Vhigh)\n6\tUser defined settings 2 (off<Vlow<on<Vhigh<off)\n"
-},
-{
-  "id": "b178052319a3f20b",
-  "type": "victron-input-system",
-  "z": "26d9df42cb8dafc6",
-  "service": "com.victronenergy.system/0",
-  "path": "/Dc/Battery/Voltage",
-  "serviceObj": {
-    "service": "com.victronenergy.system/0",
-    "name": "Venus system"
-  },
-  "pathObj": {
-    "path": "/Dc/Battery/Voltage",
-    "type": "float",
-    "name": "Battery voltage (V)"
-  },
-  "name": "Venus System | Batt Volt",
-  "onlyChanges": true,
-  "roundValues": "2",
-  "wires": [
-    [
-      "427cdb10cf8f621e"
-    ]
-  ]
-},
-{
   "id": "9d9ce450a2df9620",
   "type": "victron-output-custom",
   "z": "26d9df42cb8dafc6",
@@ -745,7 +686,56 @@
       "0c87b17726237c91",
       "14941b58fef1f2a4",
       "77d8947e23c939dc"
+    ],
+    []
+  ]
+},
+{
+  "id": "c1868e53aaeddccc",
+  "type": "victron-input-vebus",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.vebus/261",
+  "path": "/Ac/Out/L1/P",
+  "serviceObj": {
+    "service": "com.victronenergy.vebus/261",
+    "name": "MultiPlus Compact 24/1600/40-16"
+  },
+  "pathObj": {
+    "path": "/Ac/Out/L1/P",
+    "type": "float",
+    "name": "Output power phase 1 (W)"
+  },
+  "initial": "",
+  "name": "Multi Compact | Output Power",
+  "onlyChanges": true,
+  "roundValues": "0",
+  "wires": [
+    [
+      "57d7ea60929d74cf"
     ]
+  ]
+},
+{"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Power demand","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
+{
+  "id": "3cd34a2658d626ef",
+  "type": "exec",
+  "z": "26d9df42cb8dafc6",
+  "command": "vreg.py com.victronenergy.solarcharger.ttyUSB0 S 0xEDAB",
+  "addpay": "payload",
+  "append": "",
+  "useSpawn": "false",
+  "timer": "10",
+  "winHide": false,
+  "oldrc": false,
+  "name": "Set Load output",
+  "wires": [
+    [
+      "77d8947e23c939dc"
+    ],
+    [
+      "77d8947e23c939dc"
+    ],
+    []
   ]
 },
 {
@@ -772,31 +762,124 @@
   ]
 },
 {
-  "id": "c1868e53aaeddccc",
-  "type": "victron-input-vebus",
+  "id": "37037e698ce4bfa1",
+  "type": "function",
   "z": "26d9df42cb8dafc6",
-  "service": "com.victronenergy.vebus/261",
-  "path": "/Ac/Out/L1/P",
-  "serviceObj": {
-    "service": "com.victronenergy.vebus/261",
-    "name": "MultiPlus Compact 24/1600/40-16"
-  },
-  "pathObj": {
-    "path": "/Ac/Out/L1/P",
-    "type": "float",
-    "name": "Output power phase 1 (W)"
-  },
-  "initial": "",
-  "name": "Multi Compact | Output Power",
-  "onlyChanges": true,
-  "roundValues": "0",
+  "name": "Temp",
+  "outputs": 2,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "",
+  "finalize": "",
+  "libs": [
+    {
+      "var": "shared",
+      "module": "@qc00/qess/shared.mjs"
+    }
+  ],
+  "wires": [
+    [
+      "f4855a43c6509875"
+    ],
+    [
+      "3cd34a2658d626ef"
+    ]
+  ],
+  "_vcsOffload": [
+    "func.js"
+  ]
+},
+{"id": "f4855a43c6509875","type": "link out","z": "26d9df42cb8dafc6","name": "link out 1","mode": "link","links": ["259b13185504520c"],"wires": []},
+{
+  "id": "57d7ea60929d74cf",
+  "type": "function",
+  "z": "26d9df42cb8dafc6",
+  "name": "When bypass",
+  "func": "return global.get(\"multiMode\")?.desired === 3 ? msg : null;",
+  "outputs": 1,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "",
+  "finalize": "",
+  "libs": [],
   "wires": [
     [
       "b1bb7c98e59bbb23"
     ]
   ]
 },
-{"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Power demand","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
+{
+  "id": "8b84130662700481",
+  "type": "inject",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "payload": "4",
+  "payloadType": "num",
+  "wires": [
+    [
+      "3cd34a2658d626ef"
+    ]
+  ]
+},
+{
+  "id": "2df045c834ad9e8f",
+  "type": "inject",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    }
+  ],
+  "repeat": "",
+  "crontab": "50 15 * * *",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "payload": "5",
+  "payloadType": "num",
+  "wires": [
+    [
+      "3cd34a2658d626ef"
+    ]
+  ],
+  "info": "Value\tMeaning\n0\tLoad output off\n1\tAutomatic control / batterylife (default)\n2\tAlternative control 1 (off<11.1V, on>13.1V)\n3\tAlternative control 2 (off<11.8V, on>14.0V)\n4\tAlways on\n5\tUser defined settings 1 (off<Vlow, on>Vhigh)\n6\tUser defined settings 2 (off<Vlow<on<Vhigh<off)\n"
+},
+{
+  "id": "0ffbcef86f96a93a",
+  "type": "victron-input-vebus",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.vebus/261",
+  "path": "/Dc/0/Voltage",
+  "serviceObj": {
+    "service": "com.victronenergy.vebus/261",
+    "name": "MultiPlus Compact 24/1600/40-16"
+  },
+  "pathObj": {
+    "path": "/Dc/0/Voltage",
+    "type": "float",
+    "name": "Battery voltage (V)"
+  },
+  "initial": "",
+  "name": "Multi Compact | Batt Volt",
+  "onlyChanges": true,
+  "roundValues": "2",
+  "wires": [
+    [
+      "427cdb10cf8f621e"
+    ]
+  ]
+},
 {
   "id": "a73efc356634eec3",
   "type": "victron-input-vebus",
@@ -1169,6 +1252,52 @@
   ]
 },
 {"id": "3a19f5955684dc54","type": "credentials","z": "f4e68de234cff620","name": "","props": [{"value": "payload","type": "msg"}],"wires": [[]]},
+{
+  "id": "2acbdfa108a8db21",
+  "type": "victron-input-battery",
+  "z": "f4e68de234cff620",
+  "service": "com.victronenergy.battery/30",
+  "path": "/Dc/0/Current",
+  "serviceObj": {
+    "service": "com.victronenergy.battery/30",
+    "name": "Junctek Shunt"
+  },
+  "pathObj": {
+    "path": "/Dc/0/Current",
+    "type": "float",
+    "name": "Battery current (A)"
+  },
+  "name": " battery/30<Dc>I",
+  "onlyChanges": false,
+  "wires": [
+    [
+      "76f7c8e080d80993"
+    ]
+  ]
+},
+{
+  "id": "ccfbddc7a237a904",
+  "type": "victron-input-battery",
+  "z": "f4e68de234cff620",
+  "service": "com.victronenergy.battery/30",
+  "path": "/Dc/0/Voltage",
+  "serviceObj": {
+    "service": "com.victronenergy.battery/30",
+    "name": "Junctek Shunt"
+  },
+  "pathObj": {
+    "path": "/Dc/0/Voltage",
+    "type": "float",
+    "name": "Battery voltage (V)"
+  },
+  "name": " battery/30<Dc>V",
+  "onlyChanges": false,
+  "wires": [
+    [
+      "76f7c8e080d80993"
+    ]
+  ]
+},
 {
   "id": "9159b5d7c0a1168d",
   "type": "http request",
@@ -2419,7 +2548,7 @@
   "id": "64609e40dc0de632",
   "type": "debug",
   "z": "bc5b0103b541a64e",
-  "name": "Ecoflow commands",
+  "name": "EF cmd",
   "active": true,
   "tosidebar": true,
   "console": true,
@@ -2488,6 +2617,107 @@
     [
       "64609e40dc0de632"
     ]
+  ]
+},
+{
+  "id": "d004703c12ab24d2",
+  "type": "change",
+  "z": "bc5b0103b541a64e",
+  "name": "Pri. Storage",
+  "rules": [
+    {
+      "t": "set",
+      "p": "topic",
+      "pt": "msg",
+      "to": "topicSet",
+      "tot": "flow"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\t    \"id\": $millis(),\t    \"version\": \"1.0\",\t    \"cmdCode\": \"WN511_SET_SUPPLY_PRIORITY_PACK\",\t    \"params\": {\t        \"supplyPriority\": payload\t    }\t}",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "wires": [
+    [
+      "a83f4b689668f82d"
+    ]
+  ]
+},
+{
+  "id": "955a693915f72510",
+  "type": "change",
+  "z": "bc5b0103b541a64e",
+  "name": "UpperLimit",
+  "rules": [
+    {
+      "t": "set",
+      "p": "topic",
+      "pt": "msg",
+      "to": "topicSet",
+      "tot": "flow"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\t   \"id\": $millis(),\t   \"version\": \"1.0\",\t   \"cmdCode\": \"WN511_SET_BAT_UPPER_PACK\",\t   \"params\": {\t       \"upperLimit\": payload = 1? 98 : 50\t    }\t}",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "wires": [
+    [
+      "a83f4b689668f82d"
+    ]
+  ]
+},
+{
+  "id": "259b13185504520c",
+  "type": "link in",
+  "z": "bc5b0103b541a64e",
+  "name": "Prioritize Storage",
+  "links": [
+    "b1fe005de09ec08d",
+    "f4855a43c6509875"
+  ],
+  "wires": [
+    [
+      "d004703c12ab24d2",
+      "2b8f0bf6b9b26ba0"
+    ]
+  ],
+  "l": true
+},
+{
+  "id": "2b8f0bf6b9b26ba0",
+  "type": "function",
+  "z": "bc5b0103b541a64e",
+  "name": "Until MPPT Out Off",
+  "outputs": 1,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "",
+  "finalize": "",
+  "libs": [],
+  "wires": [
+    [
+      "955a693915f72510"
+    ]
+  ],
+  "_vcsOffload": [
+    "func.js"
   ]
 },
 {
