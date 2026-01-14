@@ -1,6 +1,6 @@
 import type { Metric } from "@qc00/rxnr/Metric.js";
 
-function waitUntilMpptOff() {
+function main() {
     const timeout = context.get("timeout");
     if (timeout) clearTimeout(timeout);
 

@@ -26,5 +26,6 @@ if (msg.payload === 1) {
     return;
 }
 else {
+    node.status({ shape: "ring", fill: "yellow", text: "" });
     return msg;
 }

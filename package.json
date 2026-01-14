@@ -4,9 +4,9 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
-        "@qc00/qess": "file:qess",
-        "@qc00/rxnr": "file:../rxnr",
-        "@qc00/vcs-friendly-node-red-storage": "file:../vcs-friendly-node-red-storage",
+        "@qc00/qess": "file:projects/Github/qess",
+        "@qc00/rxnr": "file:rxnr",
+        "@qc00/vcs-friendly-node-red-storage": "file:vcs-friendly-node-red-storage",
         "@shaoranlaos/node-red-contrib-ecoflow-http-api": "~1.0.1",
         "node-red-contrib-alexa-smart-home": "~0.4.68",
         "node-red-contrib-credentials": "~0.2.3",
@@ -20,5 +20,9 @@
             "flowFile": "flows.json",
             "credentialsFile": "flows_cred.json"
         }
+    },
+    "devDependencies": {
+        "@types/node": "^25.0.8",
+        "typescript": "^5.9.3"
     }
 }

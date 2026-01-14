@@ -1,0 +1,11 @@
+overrides:
+  '@qc00/qess': link:qess
+  '@qc00/rxnr': link:../rxnr
+  "@qc00/vcs-friendly-node-red-storage": "-"
+  "@shaoranlaos/node-red-contrib-ecoflow-http-api": "-"
+  "node-red-contrib-alexa-smart-home": "-"
+  "node-red-contrib-credentials": "-"
+  "node-red-contrib-influxdb": "-"
+  "node-red-contrib-os": "-"
+  "node-red-dashboard": "-"
+  "victron-vrm-api": "-"
