@@ -234,15 +234,15 @@
     }
   }
 },
-{"id": "0b20d68dae0538d4","type": "ui_group","name": "Market","tab": "d6268db62aea9f2b","order": 2,"disp": true,"width": "9","collapse": false,"className": ""},
+{"id": "0b20d68dae0538d4","type": "ui_group","name": "Market","tab": "d6268db62aea9f2b","order": 3,"disp": true,"width": "9","collapse": false,"className": ""},
 {"id": "7853403.230cdc","type": "ui_group","name": "CPU Load","tab": "e6013c6f.69328","order": 2,"disp": true,"width": "6"},
 {"id": "1d1da0fc.6ab84f","type": "ui_group","name": "Memory","tab": "e6013c6f.69328","order": 3,"disp": true,"width": "6"},
 {"id": "e6013c6f.69328","type": "ui_tab","name": "System","icon": "computer","order": 2},
 {"id": "a0c09cbc32a93f22","type": "ui_group","name": "Users","tab": "e6013c6f.69328","order": 3,"disp": true,"width": "6","collapse": false,"className": ""},
-{"id": "9c6ed5a3141fbc56","type": "ui_group","name": "Usage Control","tab": "d6268db62aea9f2b","order": 3,"disp": true,"width": "8","collapse": false,"className": ""},
+{"id": "9c6ed5a3141fbc56","type": "ui_group","name": "Usage Control","tab": "d6268db62aea9f2b","order": 4,"disp": true,"width": "8","collapse": false,"className": ""},
 {"id": "17268573dfac859a","type": "ui_group","name": "Status","tab": "d6268db62aea9f2b","order": 1,"disp": true,"width": "4","collapse": false,"className": ""},
 {"id": "11cf884897231ecb","type": "config-vrm-api","name": "API Caller"},
-{"id": "a6f0cf597c0bc9a7","type": "ui_group","name": "Stats","tab": "d6268db62aea9f2b","order": 4,"disp": true,"width": "8","collapse": false,"className": ""},
+{"id": "a6f0cf597c0bc9a7","type": "ui_group","name": "Stats","tab": "d6268db62aea9f2b","order": 5,"disp": true,"width": "8","collapse": false,"className": ""},
 {
   "id": "441f38fbab1f4c02",
   "type": "tls-config",
@@ -307,6 +307,7 @@
   "rejectUnauthorized": false
 },
 {"id": "25b988138f80b2b2","type": "global-config","name": "global-config","env": [{"name": "POWERSTREAM_SN","value": "HW51ZKH4SF5P2451","type": "str"}]},
+{"id": "dd1a974519bc2fa9","type": "ui_group","name": "Params","tab": "d6268db62aea9f2b","order": 2,"disp": true,"width": "3","collapse": false,"className": ""},
 {
   "id": "b6515b8c4811a9af",
   "type": "function",
@@ -470,7 +471,7 @@
       "c614bf0ceeadedfd"
     ],
     [
-      "37037e698ce4bfa1"
+      "f4855a43c6509875"
     ],
     [
       "abb2dcd790b183c5"
@@ -711,11 +712,10 @@
   "roundValues": "0",
   "wires": [
     [
-      "57d7ea60929d74cf"
+      "b1bb7c98e59bbb23"
     ]
   ]
 },
-{"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Power demand","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
 {
   "id": "3cd34a2658d626ef",
   "type": "exec",
@@ -761,53 +761,7 @@
     ]
   ]
 },
-{
-  "id": "37037e698ce4bfa1",
-  "type": "function",
-  "z": "26d9df42cb8dafc6",
-  "name": "Temp",
-  "outputs": 2,
-  "timeout": 0,
-  "noerr": 0,
-  "initialize": "",
-  "finalize": "",
-  "libs": [
-    {
-      "var": "shared",
-      "module": "@qc00/qess/shared.mjs"
-    }
-  ],
-  "wires": [
-    [
-      "f4855a43c6509875"
-    ],
-    [
-      "3cd34a2658d626ef"
-    ]
-  ],
-  "_vcsOffload": [
-    "func.js"
-  ]
-},
-{"id": "f4855a43c6509875","type": "link out","z": "26d9df42cb8dafc6","name": "link out 1","mode": "link","links": ["259b13185504520c"],"wires": []},
-{
-  "id": "57d7ea60929d74cf",
-  "type": "function",
-  "z": "26d9df42cb8dafc6",
-  "name": "When bypass",
-  "func": "return global.get(\"multiMode\")?.desired === 3 ? msg : null;",
-  "outputs": 1,
-  "timeout": 0,
-  "noerr": 0,
-  "initialize": "",
-  "finalize": "",
-  "libs": [],
-  "wires": [
-    [
-      "b1bb7c98e59bbb23"
-    ]
-  ]
-},
+{"id": "f4855a43c6509875","type": "link out","z": "26d9df42cb8dafc6","name": "Mode","mode": "link","links": ["3d129e6e937eb5d4"],"wires": []},
 {
   "id": "8b84130662700481",
   "type": "inject",
@@ -926,6 +880,85 @@
   ],
   "info": "Value\tMeaning\n0\tLoad output off\n1\tAutomatic control / batterylife (default)\n2\tAlternative control 1 (off<11.1V, on>13.1V)\n3\tAlternative control 2 (off<11.8V, on>14.0V)\n4\tAlways on\n5\tUser defined settings 1 (off<Vlow, on>Vhigh)\n6\tUser defined settings 2 (off<Vlow<on<Vhigh<off)\n"
 },
+{
+  "id": "db3046192a132fc8",
+  "type": "victron-input-vebus",
+  "z": "26d9df42cb8dafc6",
+  "service": "com.victronenergy.vebus/261",
+  "path": "/Alarms/L1/HighTemperature",
+  "serviceObj": {
+    "service": "com.victronenergy.vebus/261",
+    "name": "MultiPlus Compact 24/1600/40-16"
+  },
+  "pathObj": {
+    "path": "/Alarms/L1/HighTemperature",
+    "type": "enum",
+    "name": "Temperature alarm L1",
+    "enum": {
+      "0": "Ok",
+      "1": "Warning",
+      "2": "Alarm"
+    }
+  },
+  "name": "Multi Compact | Temp Alarm",
+  "onlyChanges": true,
+  "wires": [
+    [
+      "969c910727626919"
+    ]
+  ]
+},
+{"id": "891629260fe1b433","type": "alexa-smart-home-v3-state","z": "26d9df42cb8dafc6","conf": "8fde2b2df4b484df","device": "73575","name": "MultiPlus Temperature","wires": []},
+{
+  "id": "969c910727626919",
+  "type": "change",
+  "z": "26d9df42cb8dafc6",
+  "name": "Set temp",
+  "rules": [
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\"state\": {\"contact\": payload = 0 ? \"NOT_DETECTED\" : \"DETECTED\"}}",
+      "tot": "jsonata"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "wires": [
+    [
+      "891629260fe1b433"
+    ]
+  ],
+  "l": false
+},
+{
+  "id": "af27ca03a8875fde",
+  "type": "inject",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "payload": "1",
+  "payloadType": "num",
+  "wires": [
+    [
+      "969c910727626919"
+    ]
+  ]
+},
+{"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Multi Power","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
 {
   "id": "a73efc356634eec3",
   "type": "victron-input-vebus",
@@ -1065,6 +1098,7 @@
   "id": "a892ef4543af39f6",
   "type": "influxdb batch",
   "z": "f4e68de234cff620",
+  "d": true,
   "influxdb": "df2cf7e32ff3c4b5",
   "precision": "",
   "retentionPolicy": "",
@@ -2046,7 +2080,7 @@
   "libs": [
     {
       "var": "metricModule",
-      "module": "@qc00/node-red-subsampling/Metric.js"
+      "module": "@qc00/rxnr/Metric.js"
     }
   ],
   "wires": [
@@ -2130,7 +2164,7 @@
   "repeat": "",
   "crontab": "",
   "once": true,
-  "onceDelay": "2",
+  "onceDelay": "10",
   "topic": "",
   "payload": "Reset",
   "payloadType": "str",
@@ -2446,6 +2480,7 @@
   "id": "75713b659cce268e",
   "type": "influxdb out",
   "z": "bc5b0103b541a64e",
+  "d": true,
   "influxdb": "df2cf7e32ff3c4b5",
   "name": "",
   "measurement": "stream",
@@ -2553,7 +2588,7 @@
   ],
   "wires": [
     [
-      "6340f3c12439b501"
+      "434c7850ba86c7ac"
     ]
   ],
   "l": true
@@ -2575,7 +2610,7 @@
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"id\": $millis(),\t    \"version\": \"1.0\",\t    \"cmdCode\": \"WN511_SET_PERMANENT_WATTS_PACK\",\t    \"params\": {\t        \"permanentWatts\": payload * 10 + 150\t    }\t}",
+      "to": "{\t    \"id\": $millis(),\t    \"version\": \"1.0\",\t    \"cmdCode\": \"WN511_SET_PERMANENT_WATTS_PACK\",\t    \"params\": {\t        \"permanentWatts\": $.payload\t    }\t}",
       "tot": "jsonata"
     }
   ],
@@ -2604,47 +2639,6 @@
   "statusVal": "",
   "statusType": "auto",
   "wires": []
-},
-{
-  "id": "66b8583e12e11c82",
-  "type": "rbe",
-  "z": "bc5b0103b541a64e",
-  "name": "±20",
-  "func": "deadband",
-  "gap": "20",
-  "start": "",
-  "inout": "out",
-  "septopics": false,
-  "property": "payload",
-  "topi": "topic",
-  "wires": [
-    [
-      "a233448c163c0427"
-    ]
-  ]
-},
-{
-  "id": "6340f3c12439b501",
-  "type": "delay",
-  "z": "bc5b0103b541a64e",
-  "name": "1/min",
-  "pauseType": "rate",
-  "timeout": "5",
-  "timeoutUnits": "seconds",
-  "rate": "1",
-  "nbRateUnits": "1",
-  "rateUnits": "minute",
-  "randomFirst": "1",
-  "randomLast": "5",
-  "randomUnits": "seconds",
-  "drop": true,
-  "allowrate": false,
-  "outputs": 1,
-  "wires": [
-    [
-      "66b8583e12e11c82"
-    ]
-  ]
 },
 {
   "id": "3ea03ff79236bf53",
@@ -2701,7 +2695,7 @@
   "id": "955a693915f72510",
   "type": "change",
   "z": "bc5b0103b541a64e",
-  "name": "UpperLimit",
+  "name": "Charge Limit",
   "rules": [
     {
       "t": "set",
@@ -2730,23 +2724,6 @@
   ]
 },
 {
-  "id": "259b13185504520c",
-  "type": "link in",
-  "z": "bc5b0103b541a64e",
-  "name": "Prioritize Storage",
-  "links": [
-    "b1fe005de09ec08d",
-    "f4855a43c6509875"
-  ],
-  "wires": [
-    [
-      "d004703c12ab24d2",
-      "2b8f0bf6b9b26ba0"
-    ]
-  ],
-  "l": true
-},
-{
   "id": "2b8f0bf6b9b26ba0",
   "type": "function",
   "z": "bc5b0103b541a64e",
@@ -2765,6 +2742,193 @@
   "_vcsOffload": [
     "func.js"
   ]
+},
+{
+  "id": "37037e698ce4bfa1",
+  "type": "function",
+  "z": "bc5b0103b541a64e",
+  "name": "Temp",
+  "outputs": 1,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "flow.set(\"Output\", 1);",
+  "finalize": "",
+  "libs": [
+    {
+      "var": "shared",
+      "module": "@qc00/qess/shared.mjs"
+    }
+  ],
+  "wires": [
+    [
+      "d004703c12ab24d2",
+      "2b8f0bf6b9b26ba0",
+      "01a75aa669a45127"
+    ]
+  ],
+  "_vcsOffload": [
+    "func.js"
+  ]
+},
+{"id": "3d129e6e937eb5d4","type": "link in","z": "bc5b0103b541a64e","name": "Mode","links": ["f4855a43c6509875"],"wires": [["37037e698ce4bfa1"]]},
+{
+  "id": "01a75aa669a45127",
+  "type": "function",
+  "z": "bc5b0103b541a64e",
+  "name": "Update",
+  "outputs": 1,
+  "timeout": 0,
+  "noerr": 0,
+  "initialize": "context.set(\"stats\", cust.Load.stats);",
+  "finalize": "",
+  "libs": [
+    {
+      "var": "cust",
+      "module": "@qc00/qess/cust_metrics.mjs"
+    }
+  ],
+  "wires": [
+    [
+      "a233448c163c0427"
+    ]
+  ],
+  "_vcsOffload": [
+    "func.js"
+  ]
+},
+{
+  "id": "9ea429e074b0b141",
+  "type": "change",
+  "z": "bc5b0103b541a64e",
+  "name": "topic",
+  "rules": [
+    {
+      "t": "set",
+      "p": "topic",
+      "pt": "msg",
+      "to": "Multi",
+      "tot": "str"
+    }
+  ],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "wires": [
+    [
+      "01a75aa669a45127"
+    ]
+  ]
+},
+{
+  "id": "0dde44c2553b3d3d",
+  "type": "ui_text_input",
+  "z": "bc5b0103b541a64e",
+  "name": "Extra",
+  "label": "Extra Load",
+  "tooltip": "",
+  "group": "dd1a974519bc2fa9",
+  "order": 1,
+  "width": 0,
+  "height": 0,
+  "passthru": true,
+  "mode": "number",
+  "delay": "1000",
+  "topic": "extra",
+  "sendOnBlur": true,
+  "className": "",
+  "topicType": "str",
+  "wires": [
+    [
+      "01a75aa669a45127"
+    ]
+  ]
+},
+{
+  "id": "ab7aa3d16a37efce",
+  "type": "inject",
+  "z": "bc5b0103b541a64e",
+  "name": "",
+  "props": [
+    {
+      "p": "payload"
+    },
+    {
+      "p": "topic",
+      "vt": "str"
+    },
+    {
+      "p": "rarelyChange",
+      "v": "true",
+      "vt": "bool"
+    },
+    {
+      "p": "alwaysOn",
+      "v": "true",
+      "vt": "bool"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": true,
+  "onceDelay": 0.1,
+  "topic": "always",
+  "payload": "10",
+  "payloadType": "num",
+  "wires": [
+    [
+      "bb60053ded6cd2f4"
+    ]
+  ]
+},
+{
+  "id": "434c7850ba86c7ac",
+  "type": "delay",
+  "z": "bc5b0103b541a64e",
+  "name": "1/m",
+  "pauseType": "rate",
+  "timeout": "5",
+  "timeoutUnits": "seconds",
+  "rate": "1",
+  "nbRateUnits": "1",
+  "rateUnits": "minute",
+  "randomFirst": "1",
+  "randomLast": "5",
+  "randomUnits": "seconds",
+  "drop": true,
+  "allowrate": false,
+  "outputs": 1,
+  "wires": [
+    [
+      "9ea429e074b0b141"
+    ]
+  ]
+},
+{
+  "id": "bb60053ded6cd2f4",
+  "type": "ui_text_input",
+  "z": "bc5b0103b541a64e",
+  "name": "",
+  "label": "Always On Load",
+  "tooltip": "",
+  "group": "dd1a974519bc2fa9",
+  "order": 2,
+  "width": 0,
+  "height": 0,
+  "passthru": true,
+  "mode": "number",
+  "delay": "1000",
+  "topic": "always",
+  "sendOnBlur": true,
+  "className": "",
+  "topicType": "str",
+  "wires": [
+    [
+      "01a75aa669a45127"
+    ]
+  ],
+  "l": false
 },
 {
   "id": "a978ef7f.6851a",

@@ -1,5 +1,4 @@
 const config = {
-    numToKeep: metricModule.Metric.numToKeep,
     maxCount: 0,
 
     ALWAYS_AVAILABLE: ["invStatue", "batInputVolt"],

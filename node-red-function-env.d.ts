@@ -72,3 +72,9 @@ declare const RED: {
 declare const msg: any | {
     _msgid: string
 }
+
+declare interface Message<T = any> {
+    topic: string;
+    payload: T;
+    [rest: string]: any;
+}

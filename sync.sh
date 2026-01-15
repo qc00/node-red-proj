@@ -18,7 +18,7 @@ function rs() {
 remote=$remote/projects/Github/
 
 echo -e "\033[32m←\033[0m" Getting current flow from remote
-rs $remote ./ --backup-dir=.backup --exclude="*.ts" --exclude="*.sh" --exclude="*.yaml" --exclude=tsconfig.json --exclude=coord.json --exclude=qess
+rs $remote ./ --backup-dir=.backup --exclude="*.ts" --exclude="*.sh" --exclude="*.yaml" --exclude=tsconfig.json --exclude=qess
 
 git add *.js # Save state before compiling
 
