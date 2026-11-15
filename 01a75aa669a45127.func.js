@@ -11,7 +11,7 @@ if (t !== "mode_change") {
 }
 const cutoff = date.getTime() - 1800000;
 const output = flow.get("Output");
-const msgBuf = [date.toLocaleTimeString().substring(0, 5)];
+const msgBuf = [date.toLocaleTimeString().substring(0, 6)];
 let total = 0;
 for (const key of context.keys()) {
     const pr = context.get(key);

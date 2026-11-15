@@ -3,6 +3,8 @@
 {"id": "8c4da3b4870d50a4","type": "tab","label": "Control UI","disabled": false,"info": "","env": []},
 {"id": "bc5b0103b541a64e","type": "tab","label": "Ecoflow","disabled": false,"info": "","env": []},
 {"id": "772e6979.67cd08","type": "tab","label": "System","disabled": false},
+{"id": "ec83e574bd05568f","type": "tab","label": "Tuya","disabled": false,"info": "","env": []},
+{"id": "aff3930c3d51e102","type": "tab","label": "Cmd","disabled": false,"info": "","env": []},
 {
   "id": "4d0365b26fba9582",
   "type": "subflow",
@@ -235,8 +237,6 @@
   }
 },
 {"id": "0b20d68dae0538d4","type": "ui_group","name": "Market","tab": "d6268db62aea9f2b","order": 3,"disp": true,"width": "9","collapse": false,"className": ""},
-{"id": "7853403.230cdc","type": "ui_group","name": "CPU Load","tab": "e6013c6f.69328","order": 2,"disp": true,"width": "6"},
-{"id": "1d1da0fc.6ab84f","type": "ui_group","name": "Memory","tab": "e6013c6f.69328","order": 3,"disp": true,"width": "6"},
 {"id": "e6013c6f.69328","type": "ui_tab","name": "System","icon": "computer","order": 2},
 {"id": "a0c09cbc32a93f22","type": "ui_group","name": "Users","tab": "e6013c6f.69328","order": 3,"disp": true,"width": "6","collapse": false,"className": ""},
 {"id": "9c6ed5a3141fbc56","type": "ui_group","name": "Usage Control","tab": "d6268db62aea9f2b","order": 4,"disp": true,"width": "8","collapse": false,"className": ""},
@@ -306,8 +306,12 @@
   "timeout": "10",
   "rejectUnauthorized": false
 },
-{"id": "25b988138f80b2b2","type": "global-config","name": "global-config","env": [{"name": "POWERSTREAM_SN","value": "HW51ZKH4SF5P2451","type": "str"}]},
+{"id": "25b988138f80b2b2","type": "global-config","env": [{"name": "POWERSTREAM_SN","value": "HW51ZKH4SF5P2451","type": "str"}]},
 {"id": "dd1a974519bc2fa9","type": "ui_group","name": "Params","tab": "d6268db62aea9f2b","order": 2,"disp": true,"width": "3","collapse": false,"className": ""},
+{"id": "7853403.230cdc","type": "ui_group","name": "CPU Load","tab": "e6013c6f.69328","order": 2,"disp": true,"width": "6"},
+{"id": "1d1da0fc.6ab84f","type": "ui_group","name": "Memory","tab": "e6013c6f.69328","order": 3,"disp": true,"width": "6"},
+{"id": "d89235eb0161dee6","type": "ui_tab","name": "Cmd","icon": "fa-terminal","order": 3,"disabled": false,"hidden": false},
+{"id": "b442d17de42a53de","type": "ui_group","name": "Cmd","tab": "d89235eb0161dee6","order": 1,"disp": false,"width": 6,"collapse": false,"className": ""},
 {
   "id": "b6515b8c4811a9af",
   "type": "function",
@@ -331,6 +335,7 @@
   "id": "a25d96493d3b1337",
   "type": "victron-output-generator",
   "z": "26d9df42cb8dafc6",
+  "outputs": 0,
   "service": "com.victronenergy.generator/0",
   "path": "/ManualStart",
   "serviceObj": {
@@ -371,6 +376,7 @@
   "id": "abb2dcd790b183c5",
   "type": "victron-output-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 0,
   "service": "com.victronenergy.vebus/261",
   "path": "/Mode",
   "serviceObj": {
@@ -425,6 +431,7 @@
   "id": "06ff8ffa92515b94",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Alarms/LowBattery",
   "serviceObj": {
@@ -561,6 +568,7 @@
   "id": "41c12b7498f7d0bf",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Bms/AllowToCharge",
   "serviceObj": {
@@ -590,6 +598,7 @@
   "id": "419cfc2ed027603b",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Mode",
   "serviceObj": {
@@ -622,6 +631,7 @@
   "id": "9d9ce450a2df9620",
   "type": "victron-output-custom",
   "z": "26d9df42cb8dafc6",
+  "outputs": 0,
   "service": "com.victronenergy.settings",
   "path": "/Settings/Alarm/System/GridLost",
   "serviceObj": {
@@ -695,6 +705,7 @@
   "id": "c1868e53aaeddccc",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/Out/L1/P",
   "serviceObj": {
@@ -796,7 +807,7 @@
     }
   ],
   "repeat": "",
-  "crontab": "50 15 * * *",
+  "crontab": "50 16 * * *",
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
@@ -813,6 +824,7 @@
   "id": "0ffbcef86f96a93a",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Dc/0/Voltage",
   "serviceObj": {
@@ -838,6 +850,7 @@
   "id": "4327b16afbb74c49",
   "type": "victron-input-custom",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.solarcharger/288",
   "path": "/Devices/0/ServiceName",
   "serviceObj": {
@@ -857,33 +870,10 @@
   ]
 },
 {
-  "id": "4fe5050c3acdd43e",
-  "type": "inject",
-  "z": "26d9df42cb8dafc6",
-  "name": "",
-  "props": [
-    {
-      "p": "payload"
-    }
-  ],
-  "repeat": "",
-  "crontab": "00 07 * * *",
-  "once": false,
-  "onceDelay": 0.1,
-  "topic": "",
-  "payload": "5",
-  "payloadType": "num",
-  "wires": [
-    [
-      "3cd34a2658d626ef"
-    ]
-  ],
-  "info": "Value\tMeaning\n0\tLoad output off\n1\tAutomatic control / batterylife (default)\n2\tAlternative control 1 (off<11.1V, on>13.1V)\n3\tAlternative control 2 (off<11.8V, on>14.0V)\n4\tAlways on\n5\tUser defined settings 1 (off<Vlow, on>Vhigh)\n6\tUser defined settings 2 (off<Vlow<on<Vhigh<off)\n"
-},
-{
   "id": "db3046192a132fc8",
   "type": "victron-input-vebus",
   "z": "26d9df42cb8dafc6",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Alarms/L1/HighTemperature",
   "serviceObj": {
@@ -960,9 +950,66 @@
 },
 {"id": "b1bb7c98e59bbb23","type": "link out","z": "26d9df42cb8dafc6","name": "Multi Power","mode": "link","links": ["087a5cc32a549cfd"],"wires": []},
 {
+  "id": "2bf1ee97265367c1",
+  "type": "cronplus",
+  "z": "26d9df42cb8dafc6",
+  "name": "",
+  "outputField": "payload",
+  "timeZone": "",
+  "storeName": "",
+  "commandResponseMsgOutput": "output1",
+  "defaultLocation": "51.6,-0.17",
+  "defaultLocationType": "fixed",
+  "outputs": 1,
+  "options": [
+    {
+      "name": "delayed on pm",
+      "topic": "cron",
+      "payloadType": "num",
+      "payload": "5",
+      "expressionType": "solar",
+      "expression": "0 * * * * * *",
+      "location": "",
+      "offset": "-120",
+      "solarType": "selected",
+      "solarEvents": "eveningGoldenHourStart"
+    },
+    {
+      "name": "morning peak",
+      "topic": "cron",
+      "payloadType": "num",
+      "payload": "5",
+      "expressionType": "cron",
+      "expression": "0 30 6 * * * *",
+      "location": "",
+      "offset": "0",
+      "solarType": "all",
+      "solarEvents": "sunrise,sunset"
+    },
+    {
+      "name": "one off",
+      "topic": "cron",
+      "payloadType": "num",
+      "payload": "0",
+      "expressionType": "dates",
+      "expression": "2026-06-14 00:00",
+      "location": "",
+      "offset": "0",
+      "solarType": "all",
+      "solarEvents": "sunrise,sunset"
+    }
+  ],
+  "wires": [
+    [
+      "3cd34a2658d626ef"
+    ]
+  ]
+},
+{
   "id": "a73efc356634eec3",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/ActiveIn/L1/F",
   "serviceObj": {
@@ -988,6 +1035,7 @@
   "id": "509479fdcb3add03",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/ActiveIn/L1/P",
   "serviceObj": {
@@ -1013,6 +1061,7 @@
   "id": "58aee1b2040252ba",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/ActiveIn/L1/I",
   "serviceObj": {
@@ -1073,6 +1122,7 @@
   "id": "5b675c0ed20a5ff7",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/ActiveIn/L1/V",
   "serviceObj": {
@@ -1114,6 +1164,7 @@
   "id": "67cfbc1e7af55581",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/Out/L1/P",
   "serviceObj": {
@@ -1139,6 +1190,7 @@
   "id": "309022585fb99438",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/Out/L1/I",
   "serviceObj": {
@@ -1164,6 +1216,7 @@
   "id": "2068db448b726a2b",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/Out/L1/V",
   "serviceObj": {
@@ -1189,6 +1242,7 @@
   "id": "cc15ceafb35de09b",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Dc/0/Current",
   "serviceObj": {
@@ -1214,6 +1268,7 @@
   "id": "0628da14f086c80b",
   "type": "victron-input-vebus",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Dc/0/Voltage",
   "serviceObj": {
@@ -1239,6 +1294,7 @@
   "id": "108a3c89af68efe5",
   "type": "victron-input-solarcharger",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.solarcharger/288",
   "path": "/Dc/0/Current",
   "serviceObj": {
@@ -1263,6 +1319,7 @@
   "id": "3837da26efb6a1af",
   "type": "victron-input-solarcharger",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.solarcharger/288",
   "path": "/Dc/0/Voltage",
   "serviceObj": {
@@ -1287,6 +1344,7 @@
   "id": "ab747c564d0a159c",
   "type": "victron-input-solarcharger",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.solarcharger/288",
   "path": "/Yield/Power",
   "serviceObj": {
@@ -1311,6 +1369,7 @@
   "id": "3766751065cd2f0b",
   "type": "victron-input-solarcharger",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.solarcharger/288",
   "path": "/Pv/V",
   "serviceObj": {
@@ -1336,6 +1395,7 @@
   "id": "2acbdfa108a8db21",
   "type": "victron-input-battery",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.battery/30",
   "path": "/Dc/0/Current",
   "serviceObj": {
@@ -1359,6 +1419,7 @@
   "id": "ccfbddc7a237a904",
   "type": "victron-input-battery",
   "z": "f4e68de234cff620",
+  "outputs": 1,
   "service": "com.victronenergy.battery/30",
   "path": "/Dc/0/Voltage",
   "serviceObj": {
@@ -1876,7 +1937,6 @@
   "name": "Consumption API",
   "api_type": "installations",
   "idUser": "",
-  "users": "",
   "idSite": "45531",
   "installations": "stats",
   "attribute": "consumption",
@@ -1889,23 +1949,9 @@
   "gps_end": "",
   "widgets": "",
   "instance": "",
-  "vrm_id": "",
-  "country": "",
-  "b_max": "",
-  "tb_max": "",
-  "fb_max": "",
-  "tg_max": "",
-  "fg_max": "",
-  "b_cycle_cost": "",
-  "buy_price_formula": "",
-  "sell_price_formula": "",
-  "green_mode_on": "",
-  "feed_in_possible": "",
-  "feed_in_control_on": "",
-  "b_goal_hour": "",
-  "b_goal_SOC": "",
   "store_in_global_context": false,
   "verbose": true,
+  "outputs": 1,
   "wires": [
     [
       "41297551b9749a4d"
@@ -1934,6 +1980,7 @@
   "id": "d61f12e705bdf8a6",
   "type": "victron-input-vebus",
   "z": "8c4da3b4870d50a4",
+  "outputs": 1,
   "service": "com.victronenergy.vebus/261",
   "path": "/Ac/Out/L1/P",
   "serviceObj": {
@@ -2010,6 +2057,7 @@
   "type": "victron-virtual",
   "z": "bc5b0103b541a64e",
   "name": "PowerStream",
+  "outputs": 1,
   "device": "pvinverter",
   "default_values": false,
   "battery_capacity": 25,
@@ -2032,12 +2080,15 @@
   "include_pressure": false,
   "include_temp_battery": false,
   "temp_battery_voltage": 3.3,
-  "wires": []
+  "wires": [
+    []
+  ]
 },
 {
   "id": "c869e61c13e08a4a",
   "type": "victron-output-battery",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.battery/100",
   "path": "/Soc",
   "serviceObj": {
@@ -2209,6 +2260,7 @@
   "type": "victron-virtual",
   "z": "bc5b0103b541a64e",
   "name": "EcoFlow Batt",
+  "outputs": 1,
   "device": "battery",
   "default_values": false,
   "battery_capacity": "40",
@@ -2231,12 +2283,15 @@
   "include_pressure": false,
   "include_temp_battery": false,
   "temp_battery_voltage": 3.3,
-  "wires": []
+  "wires": [
+    []
+  ]
 },
 {
   "id": "9f1caa6d592e6df4",
   "type": "victron-output-battery",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.battery/100",
   "path": "/Dc/0/Power",
   "serviceObj": {
@@ -2291,6 +2346,7 @@
   "id": "f7c1c1b82ddf5ee2",
   "type": "victron-output-battery",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.battery/100",
   "path": "/Dc/0/Current",
   "serviceObj": {
@@ -2310,6 +2366,7 @@
   "id": "146d4323fa4bcc26",
   "type": "victron-output-battery",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.battery/100",
   "path": "/Dc/0/Voltage",
   "serviceObj": {
@@ -2330,6 +2387,7 @@
   "id": "63c8f4d68a0b4682",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/Ac/PowerLimit",
   "serviceObj": {
@@ -2350,6 +2408,7 @@
   "id": "579ec36e91546f6a",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/Ac/Power",
   "serviceObj": {
@@ -2369,6 +2428,7 @@
   "id": "7ed57091ae6a7b7e",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/Ac/L1/Power",
   "serviceObj": {
@@ -2388,6 +2448,7 @@
   "id": "e1b63652f7774068",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/Ac/L1/Current",
   "serviceObj": {
@@ -2407,6 +2468,7 @@
   "id": "f5a9c512799ce2b6",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/Ac/L1/Voltage",
   "serviceObj": {
@@ -2426,6 +2488,7 @@
   "id": "9c0afaaf1c9e682b",
   "type": "victron-output-pvinverter",
   "z": "bc5b0103b541a64e",
+  "outputs": 0,
   "service": "com.victronenergy.pvinverter/101",
   "path": "/StatusCode",
   "serviceObj": {
@@ -2632,7 +2695,7 @@
   "name": "EF cmd",
   "active": true,
   "tosidebar": true,
-  "console": true,
+  "console": false,
   "tostatus": false,
   "complete": "payload.params",
   "targetType": "msg",
@@ -2929,6 +2992,50 @@
     ]
   ],
   "l": false
+},
+{
+  "id": "88fde1fd6f571baf",
+  "type": "cronplus",
+  "z": "bc5b0103b541a64e",
+  "name": "One-offs",
+  "outputField": "payload",
+  "timeZone": "",
+  "storeName": "",
+  "commandResponseMsgOutput": "output1",
+  "defaultLocation": "",
+  "defaultLocationType": "default",
+  "outputs": 1,
+  "options": [
+    {
+      "name": "Off",
+      "topic": "extra",
+      "payloadType": "num",
+      "payload": "0",
+      "expressionType": "dates",
+      "expression": "2026-04-14 13:50",
+      "location": "",
+      "offset": "0",
+      "solarType": "all",
+      "solarEvents": "sunrise,sunset"
+    },
+    {
+      "name": "Drying",
+      "topic": "extra",
+      "payloadType": "num",
+      "payload": "300",
+      "expressionType": "dates",
+      "expression": "2026-04-04 03:00",
+      "location": "",
+      "offset": "0",
+      "solarType": "all",
+      "solarEvents": "sunrise,sunset"
+    }
+  ],
+  "wires": [
+    [
+      "0dde44c2553b3d3d"
+    ]
+  ]
 },
 {
   "id": "a978ef7f.6851a",
@@ -3356,4 +3463,107 @@
   ]
 },
 {"id": "7076dff3f56b98e2","type": "link out","z": "772e6979.67cd08","name": "tab remove","mode": "link","links": ["1faca75889eadc24"],"wires": []},
-{"id": "060128dfb896100c","type": "link out","z": "772e6979.67cd08","name": "tab add","mode": "link","links": ["1faca75889eadc24","919042522772b0aa"],"wires": []}]
+{"id": "060128dfb896100c","type": "link out","z": "772e6979.67cd08","name": "tab add","mode": "link","links": ["1faca75889eadc24","919042522772b0aa"],"wires": []},
+{
+  "id": "4263ba4309276556",
+  "type": "debug",
+  "z": "ec83e574bd05568f",
+  "name": "debug 5",
+  "active": true,
+  "tosidebar": true,
+  "console": false,
+  "tostatus": false,
+  "complete": "false",
+  "statusVal": "",
+  "statusType": "auto",
+  "wires": []
+},
+{
+  "id": "3cc853e6c53b3e7a",
+  "type": "tuya-smart-device",
+  "z": "ec83e574bd05568f",
+  "deviceName": "1F_29:20:d6",
+  "disableAutoStart": true,
+  "deviceId": "",
+  "deviceKey": "",
+  "storeAsCreds": true,
+  "deviceIp": "192.168.100.111",
+  "retryTimeout": 1000,
+  "findTimeout": 10000,
+  "tuyaVersion": "3.3",
+  "eventMode": "event-both",
+  "logLevel": "log-level-debug",
+  "wires": [
+    [
+      "4263ba4309276556"
+    ],
+    [
+      "4263ba4309276556"
+    ]
+  ]
+},
+{
+  "id": "b970720832682d05",
+  "type": "exec",
+  "z": "aff3930c3d51e102",
+  "command": "",
+  "addpay": "payload",
+  "append": "",
+  "useSpawn": "true",
+  "timer": "30",
+  "winHide": false,
+  "oldrc": false,
+  "name": "",
+  "wires": [
+    [
+      "609eeed7e2188a6d"
+    ],
+    [
+      "609eeed7e2188a6d"
+    ],
+    []
+  ]
+},
+{
+  "id": "5e3c1a125e965877",
+  "type": "ui_text_input",
+  "z": "aff3930c3d51e102",
+  "name": "",
+  "label": "",
+  "tooltip": "",
+  "group": "b442d17de42a53de",
+  "order": 1,
+  "width": "6",
+  "height": "1",
+  "passthru": true,
+  "mode": "text",
+  "delay": "0",
+  "topic": "topic",
+  "sendOnBlur": false,
+  "className": "",
+  "topicType": "msg",
+  "wires": [
+    [
+      "b970720832682d05"
+    ]
+  ]
+},
+{
+  "id": "609eeed7e2188a6d",
+  "type": "ui_text",
+  "z": "aff3930c3d51e102",
+  "group": "b442d17de42a53de",
+  "order": 0,
+  "width": "6",
+  "height": "5",
+  "name": "",
+  "label": "",
+  "format": "{{msg.payload}}",
+  "layout": "row-left",
+  "className": "",
+  "style": false,
+  "font": "",
+  "fontSize": 16,
+  "color": "#000000",
+  "wires": []
+}]

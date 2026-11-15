@@ -10,9 +10,10 @@
         "@shaoranlaos/node-red-contrib-ecoflow-http-api": "~1.0.1",
         "node-red-contrib-alexa-smart-home": "~0.4.68",
         "node-red-contrib-credentials": "~0.2.3",
+        "node-red-contrib-cron-plus": "~2.2.4",
         "node-red-contrib-influxdb": "~0.7.0",
         "node-red-contrib-os": "~0.2.1",
-        "node-red-contrib-tuya-devices": "~1.5.4",
+        "node-red-contrib-tuya-smart-device": "~5.4.0",
         "node-red-dashboard": "~3.6.1",
         "victron-vrm-api": "^0.2.15"
     },

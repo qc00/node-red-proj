@@ -11,9 +11,13 @@ case M.Invert:
     }
     break;
 case M.Bypass:
-    node.status({text: "Priority needs manual control"});
-    flow.set("Output", 1);
-    return { topic: "mode_change" };
+    if (flow.get("Output") === 1 && hour < 16) {
+        node.status({text: "Noop for manual control"});
+    } else {
+        node.status({text: "Priority needs manual control"});
+        flow.set("Output", 1);
+        return { topic: "mode_change" };
+    }
 default:
     throw new Error("Unexpected mode: " + JSON.stringify(msg));
 }
