@@ -7,5 +7,6 @@ overrides:
   "node-red-contrib-credentials": "-"
   "node-red-contrib-influxdb": "-"
   "node-red-contrib-os": "-"
+  "node-red-contrib-tuya-devices": "-"
   "node-red-dashboard": "-"
   "victron-vrm-api": "-"

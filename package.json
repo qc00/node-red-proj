@@ -12,6 +12,7 @@
         "node-red-contrib-credentials": "~0.2.3",
         "node-red-contrib-influxdb": "~0.7.0",
         "node-red-contrib-os": "~0.2.1",
+        "node-red-contrib-tuya-devices": "~1.5.4",
         "node-red-dashboard": "~3.6.1",
         "victron-vrm-api": "^0.2.15"
     },
