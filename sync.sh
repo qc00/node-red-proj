@@ -24,15 +24,20 @@ git add *.js # Save state before compiling
 
 echo -e "\033[97;104mTS\033[0m"
 node_modules/.bin/tsc
+
 # Strip the function wrapper from ts:
 pattern='^(function main\(|import|export)'
-for ts in *.ts ; do
-    js="${ts/%ts/js}"
-    if [[ -f $js ]] && head -n 5 $js | egrep -q "$pattern" ; then
-        echo Stripping $js
-        sed -Ee "/^function main/,/^\}/ s/^(    |\})//; /$pattern/d;"'/^$/{$d;}' -i '' $js
-    fi
-done
+function strip() {
+    for ts in "$1"/*.ts ; do
+        js="${ts/%ts/js}"
+        if [[ -f "$js" ]] && head -n 5 "$js" | egrep -q "$pattern" ; then
+            echo Stripping $js
+            sed -Ee "/^function main/,/^\}/ s/^(    |\})//; /$pattern/d;"'/^$/{$d;}' -i '' "$js"
+        fi
+    done
+}
+strip .
+jq -r '.[] | (select(.type == "tab") | .label) // (select(.type == "subflow") | .name)' flows.json | while read dir ; do strip "$dir" ; done
 
 echo -e "\033[32m→\033[0m" Sending changes # Should be the logical complement of above
 rs ./ $remote --include='/qess/*.*' --chown=nodered:nodered
